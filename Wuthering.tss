@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<ArrayOfArrayOfArrayOfString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <ArrayOfArrayOfString>
+    <ArrayOfString>
+      <string>E:\Visual Studio\Projects\VSIX\Wuthering\SourceComments\Sources\WutheringComments.cs</string>
+    </ArrayOfString>
+    <ArrayOfString>
+      <string>E:\Visual Studio\Projects\VSIX\Wuthering\CommentsTestUI\TestUI.cs</string>
+      <string>E:\Visual Studio\Projects\VSIX\Wuthering\CommentsTestUI\TestUI.cs</string>
+    </ArrayOfString>
+    <ArrayOfString>
+      <string>E:\Visual Studio\Projects\VSIX\Wuthering\SourceComments\Sources\Components\XmlComments.cs</string>
+    </ArrayOfString>
+    <ArrayOfString>
+      <string>E:\Visual Studio\Projects\VSIX\Wuthering\CommentsTestUI\Data\WutheringComments.xml</string>
+      <string>E:\Visual Studio\Projects\VSIX\Wuthering\CommentsTestUI\Data\WutheringComments.xsd</string>
+    </ArrayOfString>
+    <ArrayOfString>
+      <string>E:\Visual Studio\Projects\VSIX\Wuthering\SourceComments\Sources\Components\Comments.cs</string>
+    </ArrayOfString>
+    <ArrayOfString>
+      <string>E:\Visual Studio\Projects\VSIX\Wuthering\SourceComments\Sources\Components\XmlCommentBase.cs</string>
+    </ArrayOfString>
+    <ArrayOfString>
+      <string>E:\Visual Studio\Projects\VSIX\Wuthering\SourceComments\Sources\Components\Author.cs</string>
+    </ArrayOfString>
+    <ArrayOfString>
+      <string>E:\Visual Studio\Projects\VSIX\Wuthering\SourceComments\Sources\Components\Category.cs</string>
+    </ArrayOfString>
+    <ArrayOfString>
+      <string>E:\Visual Studio\Projects\VSIX\Wuthering\SourceComments\Sources\Components\CommentType.cs</string>
+    </ArrayOfString>
+    <ArrayOfString>
+      <string>E:\Visual Studio\Projects\VSIX\Wuthering\SourceComments\Sources\Components\Template.cs</string>
+    </ArrayOfString>
+  </ArrayOfArrayOfString>
+</ArrayOfArrayOfArrayOfString>

@@ -1,0 +1,112 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<wuthering-comments>
+	<author name="Ademar Letracteur" initials="AL" email="ademar.letracteur@gmail.com" website="www.ademar-letracteur.com"/>
+
+	<categories>
+		<category name="block">Thick code block comment</category>
+		<category name="class">Comment inserted before a class definition</category>
+		<category name="code">Multiline comment inserted before a code block</category>
+		<category name="file">Comment inserted at the top of a source file</category>
+		<category name="function">Comment inserted before a function</category>
+		<category name="method">Comment inserted before a method</category>
+	</categories>
+
+	<comment-types>
+		<comment-type name="custom"></comment-type>
+	</comment-types>
+
+	<templates>
+		<template name="c-like">
+			<comment category="block">
+				/**************************************************************************************************************
+				 **************************************************************************************************************
+				 **************************************************************************************************************
+				 ******                                                                                                  ******
+				 ******                                                                                                  ******
+				 ******                                            BLOCK                                                 ******
+				 ******                                                                                                  ******
+				 ******                                                                                                  ******
+				 **************************************************************************************************************
+				 **************************************************************************************************************
+				 **************************************************************************************************************/
+			</comment>
+			<comment category="class">
+				/*==============================================================================================================
+
+				    class class -
+					Description
+
+				  ==============================================================================================================*/
+
+			</comment>
+			<comment category="standard">
+				/*==============================================================================================================
+
+
+
+				  ==============================================================================================================*/
+			</comment>
+			<comment category="function">
+				/*--------------------------------------------------------------------------------------------------------------
+
+				    NAME
+					method - summary
+
+				    PROTOTYPE
+					prototype
+
+				    DESCRIPTION
+					description
+
+				    PARAMETERS
+					$param (type) -
+					description
+
+				    RETURN VALUE
+					description
+
+				    NOTES
+					description
+
+				 *-------------------------------------------------------------------------------------------------------------*/
+			</comment>
+			<comment>
+				/**************************************************************************************************************
+
+				    NAME
+					{$file}
+
+				    DESCRIPTION
+					description.
+
+				    AUTHOR
+					{$author}, {$month}/{$year}.
+
+				    HISTORY
+					[Version : 1.0]		[Date : {$date}]     [Author : {$initials}]
+						Initial version.
+
+				**************************************************************************************************************/
+			</comment>
+		</template>
+	</templates>
+
+	<groups>
+		<group language="php" type="custom" extensions="php php3 php4 php5 phpclass phpinclude phpscript phs phpinc">
+			<comment category="block" template="c-like"/>
+			<comment category="class" template="c-like"/>
+			<comment category="method" template="c-like"/>
+			<comment category="function" template="c-like"/>
+			<comment category="file" template="c-like"/>
+			<comment category="standard">
+				/***
+
+
+
+				 ***/
+			</comment>
+		</group>
+	</groups>
+	
+</wuthering-comments>
