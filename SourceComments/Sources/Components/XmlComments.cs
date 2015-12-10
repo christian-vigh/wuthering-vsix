@@ -1,16 +1,16 @@
 ﻿/**************************************************************************************************************
 
     NAME
-	Debug.cs
+	XmlComments.cs
 
     DESCRIPTION
-	Some maybe useful debug utility functions.
+	A class to load a <wuthering-comments> definition from string/resource/file and save it to a file.
 
     AUTHOR
 	Christian Vigh, 12/2015.
 
     HISTORY
-	[Version : 1.0]		[Date : 2015/09/12]     [Author : CV]
+	[Version : 1.0]		[Date : 2015/012/10]     [Author : CV]
 		Initial version.
 
  **************************************************************************************************************/
@@ -18,6 +18,7 @@ using  System;
 using  System. Collections. Generic ;
 using  System. IO ;
 using  System. Linq ; 
+using  System. Reflection ;
 using  System. Text ;
 using  System. Threading. Tasks ;
 using  System. Xml ;
@@ -25,38 +26,83 @@ using  System. Xml ;
 
 namespace Wuthering. WutheringComments
    {
+	/// <summary>
+	/// Class used to parse comment definitions from a string. This is also the base class for
+	/// the XmlFileComments and XmlResourceComments classes.
+	/// </summary>
 	public class XmlComments
 	   {
-		public Comments Content {  get ; private  set ; }
+		// The whole definitions tree stored as an object hierarchy
+		public Comments		Contents		{ get ; private set ; }
+		// XmlDocument
+		public XmlDocument	Document		{ get ; private set ; }
+		// Text contents after loading
+		public string		TextContents		{ get ; private set ; }
+		// Contents of embedded definitions and schema
+		public static string	StockDefinitions	{ get ; private set ; }
+		public static string	StockSchema		{ get ; private set ; }
 
+
+		/// <summary>
+		/// Static constructor. Retrieves the contents of the xml definitions and xsd files embedded in
+		/// the resources.
+		/// </summary>
+		static  XmlComments ( )
+		   {
+			StockDefinitions	=  WutheringCommentsPackage. Resources. WutheringCommentsXml ;
+			StockSchema		=  WutheringCommentsPackage. Resources. WutheringCommentsXsd ;
+		    }
 
 		public  XmlComments ( )
 		   {
 		    }
 
-
+		/// <summary>
+		/// Parses &lt;wuthering-comments&gt; definitions from a string.
+		/// </summary>
+		/// <param name="data">String containing xml data.</param>
 		public void  Load ( string  data )
 		   {
-			XmlDocument	document	=  new XmlDocument ( ) ;
+			Document	=  new XmlDocument ( ) ;
+			Document. LoadXml ( data ) ;
 
-			document. LoadXml ( data ) ;
-
-			Content		=  new Comments ( document.DocumentElement ) ;
+			Contents	=  new Comments ( Document. DocumentElement ) ;
+			TextContents	=  data ;
 		    }
 
 
-		//public abstract void		Save		( string  output ) ;
-		//public abstract string		ToString	( ) ;
+		/// <summary>
+		/// Saves current definitions to the specified file.
+		/// </summary>
+		/// <param name="output">Output file.</param>
+		public void   Save ( string  output )
+		   {
+			File. WriteAllText ( output, ToXmlString ( ) ) ;
+		    }
+
+		
+		public override string	ToString ( )
+		   {
+			return ( Contents. ToString ( ) ) ;
+		    }
+
+
+		public string	ToXmlString ( )
+		   {
+			return ( Contents. ToXmlString ( ) ) ;
+		    }
 	    }
 
 
+	/// <summary>
+	/// Loads &lt;wuthering-comments&gt; definitions from a file.
+	/// </summary>
 	public class   XmlFileComments		:  XmlComments
 	   {
 		public string	Filename	{ get ; private set ; }
 
 		public  XmlFileComments ( )
-		   {
-		    }
+		   { }
 
 
 		public new void  Load ( string  file )
@@ -70,12 +116,4 @@ namespace Wuthering. WutheringComments
 			base. Load  ( content ) ;
 		    }
 	    }
-
-
-	/*
-	public class   XmlResourceComments	:  XmlComments
-	   {
-		
-	    }
-	    */
     }

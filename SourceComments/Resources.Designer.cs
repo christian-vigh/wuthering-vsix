@@ -59,5 +59,41 @@ namespace Wuthering.WutheringCommentsPackage {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;wuthering-comments xs:schemaLocation=&quot;http://schemas.wuthering-bytes.com/2015-12-10/WutheringBytes.xsd&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot;&gt;
+        ///	
+        ///	&lt;author  name=&quot;Ademar Letracteur&quot; initials=&quot;AL&quot; email=&quot;ademar.letracteur@gmail.com&quot; website=&quot;www.ademar-letracteur.com&quot;/&gt;
+        ///
+        ///	&lt;categories&gt;
+        ///		&lt;category name=&quot;block&quot;&gt;Thick code block comment&lt;/category&gt;
+        ///		&lt;category name=&quot;class&quot;&gt;Comment inserted before a class definition&lt;/category&gt;
+        ///		&lt;category name=&quot;code&quot;&gt;Multiline comment inserted before a code block&lt;/cat [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string WutheringCommentsXml {
+            get {
+                return ResourceManager.GetString("WutheringCommentsXml", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+        ///&lt;xs:schema attributeFormDefault=&quot;unqualified&quot; elementFormDefault=&quot;qualified&quot; 
+        ///	   xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot;&gt;
+        ///	&lt;xs:element name=&quot;wuthering-comments&quot;&gt;
+        ///		&lt;xs:complexType&gt;
+        ///			&lt;xs:sequence&gt;
+        ///				&lt;xs:element name=&quot;author&quot;&gt;
+        ///					&lt;xs:complexType&gt;
+        ///						&lt;xs:attribute name=&quot;name&quot; type=&quot;xs:string&quot; use=&quot;required&quot; /&gt;
+        ///						&lt;xs:attribute name=&quot;initials&quot; type=&quot;xs:string&quot; use=&quot;optional&quot; /&gt;
+        ///						&lt;xs:attribute name=&quot;email&quot; type=&quot;xs:string&quot; use=&quot;optional&quot; /&gt;
+        /// [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string WutheringCommentsXsd {
+            get {
+                return ResourceManager.GetString("WutheringCommentsXsd", resourceCulture);
+            }
+        }
     }
 }

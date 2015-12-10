@@ -1,4 +1,31 @@
-﻿using  System ;
+﻿/**************************************************************************************************************
+
+    NAME
+	Comments.cs
+
+    DESCRIPTION
+	The Comments class is the top-level class that contain the <wuthering-comments> definitions.
+	The class tree is the following ("x -->* y" denotes a collection x of y objects) :
+ 
+ 	Comments
+ 		. Author
+ 		. Categories
+ 		  -->* Category
+ 		. CommentTypes
+ 		  -->* CommentType
+ 		. Templates
+ 		  -->* Template
+ 		       -->* CommentBlock
+
+    AUTHOR
+	Christian Vigh, 12/2015.
+
+    HISTORY
+	[Version : 1.0]		[Date : 2015/012/10]     [Author : CV]
+		Initial version.
+
+ **************************************************************************************************************/
+using  System ;
 using  System. Collections. Generic ;
 using  System. Linq ;
 using  System. Text ;
@@ -17,6 +44,8 @@ namespace Wuthering. WutheringComments
 
 		public  Comments  ( XmlNode  root ) : base ( root )
 		   {
+			Compound	=  true ;
+
 			foreach ( XmlNode  CommentNode  in  root )
 			   {
 				switch  ( CommentNode. Name. ToLower ( ) )
@@ -26,18 +55,41 @@ namespace Wuthering. WutheringComments
 						break ;
 
 					case	"categories" :
-						Categories	=  new Categories ( CommentNode ) ;
+						Categories	=  new Categories ( CommentNode, "category" ) ;
 						break ;
 
 					case	"comment-types" :
-						CommentTypes	=  new CommentTypes ( CommentNode ) ;
+						CommentTypes	=  new CommentTypes ( CommentNode, "comment-type" ) ;
 						break ;
 
 					case	"templates" :
-						Templates	=  new Templates ( CommentNode ) ;
+						Templates	=  new Templates ( CommentNode, "template" ) ;
 						break ;
 				    }
 			    }
+		    }
+
+
+		public override string  ToString ( )
+		   {
+			StringBuilder	result	=  new StringBuilder ( GetOpeningTag ( true ) + "\n" ) ;
+
+			// <author>
+			result. Append ( Author. ToXmlString ( ) + "\n\n" ) ;
+
+			// Categories
+			result. Append ( Categories. ToXmlString ( ) + "\n\n" ) ;
+
+			// Comment types
+			result. Append ( CommentTypes. ToXmlString ( ) + "\n\n" ) ;
+
+			// Templates
+			result. Append ( Templates. ToXmlString ( ) + "\n\n" ) ;
+
+			// End of <wuthering-comments>
+			result. Append ( GetClosingTag ( ) ) ;
+
+			return ( result. ToString ( ) ) ;
 		    }
 	    }
     }

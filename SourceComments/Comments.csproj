@@ -121,6 +121,7 @@
     </COMReference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Sources\Components\CommentBlock.cs" />
     <Compile Include="Sources\Components\Template.cs" />
     <Compile Include="Sources\Components\Author.cs" />
     <Compile Include="Sources\Components\CommentType.cs" />
@@ -150,6 +151,9 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Data\WutheringComments.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="source.extension.vsixmanifest">
       <SubType>Designer</SubType>
     </None>
@@ -170,7 +174,7 @@
     <None Include="Data\Comments.ori.xml">
       <SubType>Designer</SubType>
     </None>
-    <EmbeddedResource Include="Data\Definitions.xml" />
+    <EmbeddedResource Include="Data\WutheringComments.xml" />
     <Content Include="Resources\Package.ico" />
   </ItemGroup>
   <ItemGroup>

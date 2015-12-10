@@ -1,6 +1,5 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-
-<wuthering-comments>
+﻿<wuthering-comments xs:schemaLocation="http://schemas.wuthering-bytes.com/2015-12-10/WutheringBytes.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	
 	<author name="Ademar Letracteur" initials="AL" email="ademar.letracteur@gmail.com" website="www.ademar-letracteur.com"/>
 
 	<categories>
@@ -13,11 +12,11 @@
 	</categories>
 
 	<comment-types>
-		<comment-type name="custom"></comment-type>
+		<comment-type name="custom"/>
 	</comment-types>
 
 	<templates>
-		<template name="c-like">
+		<template name="c-like" description="C-like comment constructs">
 			<comment category="block">
 				/**************************************************************************************************************
 				 **************************************************************************************************************
@@ -38,7 +37,6 @@
 					Description
 
 				  ==============================================================================================================*/
-
 			</comment>
 			<comment category="standard">
 				/*==============================================================================================================
@@ -71,7 +69,7 @@
 
 				 *-------------------------------------------------------------------------------------------------------------*/
 			</comment>
-			<comment>
+			<comment category="file">
 				/**************************************************************************************************************
 
 				    NAME
@@ -94,11 +92,11 @@
 
 	<groups>
 		<group language="php" type="custom" extensions="php php3 php4 php5 phpclass phpinclude phpscript phs phpinc">
-			<comment category="block" template="c-like"/>
-			<comment category="class" template="c-like"/>
-			<comment category="method" template="c-like"/>
-			<comment category="function" template="c-like"/>
-			<comment category="file" template="c-like"/>
+			<comment category="block"	template="c-like"/>
+			<comment category="class"	template="c-like"/>
+			<comment category="method"	template="c-like" template-category="function"/>
+			<comment category="function"	template="c-like"/>
+			<comment category="file"	template="c-like"/>
 			<comment category="standard">
 				/***
 

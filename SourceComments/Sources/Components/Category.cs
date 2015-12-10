@@ -1,4 +1,20 @@
-﻿using  System ;
+﻿/**************************************************************************************************************
+
+    NAME
+	Categories.cs
+
+    DESCRIPTION
+	Encapsulates a <categories> node and instanciate a Category object for each <category> child node.
+
+    AUTHOR
+	Christian Vigh, 12/2015.
+
+    HISTORY
+	[Version : 1.0]		[Date : 2015/012/10]     [Author : CV]
+		Initial version.
+
+ **************************************************************************************************************/
+using  System ;
 using  System. Collections. Generic ;
 using  System. Linq ;
 using  System. Text ;
@@ -12,9 +28,8 @@ namespace Wuthering. WutheringComments
 	   {
 		public		Categories ( ) : base ( ) { }
 
-		public		Categories ( XmlNode  node ) : base ( node )
-		   {
-			
+		public		Categories ( XmlNode  node, string  subtag ) : base ( node, subtag )
+		   {			
 		    }
 	    }
 
@@ -22,13 +37,13 @@ namespace Wuthering. WutheringComments
 	public class Category	:  XmlCommentNode
 	   {
 		public string	Description	{  get ; set ; }
-		public string	Text		{  get ; set ; }
 
 
-		public		Category ( ) : base ( ) { }
+		public		Category ( ) : base ( ) { Compound = true ; }
 
 		public  Category ( XmlNode  node )
 		   {
+			Compound = true ;
 			Initialize ( node ) ;
 		    }
 
@@ -41,6 +56,5 @@ namespace Wuthering. WutheringComments
 			Description	=  GetAttributeValue ( "description" ) ;
 			Text		=  GetNodeText ( true ) ;
 		    }
-
 	    }
     }

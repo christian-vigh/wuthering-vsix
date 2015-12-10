@@ -2,36 +2,45 @@
 <ArrayOfArrayOfArrayOfString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <ArrayOfArrayOfString>
     <ArrayOfString>
-      <string>E:\Visual Studio\Projects\VSIX\Wuthering\SourceComments\Sources\WutheringComments.cs</string>
+      <string>e:\visual studio\projects\vsix\wuthering\sourcecomments\sources\wutheringcomments.cs</string>
     </ArrayOfString>
     <ArrayOfString>
-      <string>E:\Visual Studio\Projects\VSIX\Wuthering\CommentsTestUI\TestUI.cs</string>
-      <string>E:\Visual Studio\Projects\VSIX\Wuthering\CommentsTestUI\TestUI.cs</string>
+      <string>e:\visual studio\projects\vsix\wuthering\commentstestui\testui.cs</string>
+      <string>e:\visual studio\projects\vsix\wuthering\commentstestui\testui.cs</string>
     </ArrayOfString>
     <ArrayOfString>
-      <string>E:\Visual Studio\Projects\VSIX\Wuthering\SourceComments\Sources\Components\XmlComments.cs</string>
+      <string>e:\visual studio\projects\vsix\wuthering\sourcecomments\sources\components\xmlcomments.cs</string>
     </ArrayOfString>
     <ArrayOfString>
       <string>E:\Visual Studio\Projects\VSIX\Wuthering\CommentsTestUI\Data\WutheringComments.xml</string>
-      <string>E:\Visual Studio\Projects\VSIX\Wuthering\CommentsTestUI\Data\WutheringComments.xsd</string>
+      <string>e:\visual studio\projects\vsix\wuthering\commentstestui\data\wutheringcomments.xsd</string>
     </ArrayOfString>
     <ArrayOfString>
-      <string>E:\Visual Studio\Projects\VSIX\Wuthering\SourceComments\Sources\Components\Comments.cs</string>
+      <string>e:\visual studio\projects\vsix\wuthering\sourcecomments\sources\components\comments.cs</string>
     </ArrayOfString>
     <ArrayOfString>
-      <string>E:\Visual Studio\Projects\VSIX\Wuthering\SourceComments\Sources\Components\XmlCommentBase.cs</string>
+      <string>e:\visual studio\projects\vsix\wuthering\sourcecomments\sources\components\xmlcommentbase.cs</string>
     </ArrayOfString>
     <ArrayOfString>
-      <string>E:\Visual Studio\Projects\VSIX\Wuthering\SourceComments\Sources\Components\Author.cs</string>
+      <string>e:\visual studio\projects\vsix\wuthering\sourcecomments\sources\components\author.cs</string>
     </ArrayOfString>
     <ArrayOfString>
-      <string>E:\Visual Studio\Projects\VSIX\Wuthering\SourceComments\Sources\Components\Category.cs</string>
+      <string>e:\visual studio\projects\vsix\wuthering\sourcecomments\sources\components\category.cs</string>
     </ArrayOfString>
     <ArrayOfString>
-      <string>E:\Visual Studio\Projects\VSIX\Wuthering\SourceComments\Sources\Components\CommentType.cs</string>
+      <string>e:\visual studio\projects\vsix\wuthering\sourcecomments\sources\components\commenttype.cs</string>
     </ArrayOfString>
     <ArrayOfString>
-      <string>E:\Visual Studio\Projects\VSIX\Wuthering\SourceComments\Sources\Components\Template.cs</string>
+      <string>e:\visual studio\projects\vsix\wuthering\sourcecomments\sources\components\template.cs</string>
+    </ArrayOfString>
+    <ArrayOfString>
+      <string>E:\Visual Studio\Projects\VSIX\Wuthering\SourceComments\Sources\Components\CommentBlock.cs</string>
+    </ArrayOfString>
+    <ArrayOfString>
+      <string>T:\Temp\{8b93c710-80e1-4185-aef1-d83891750c71}.vsix</string>
+    </ArrayOfString>
+    <ArrayOfString>
+      <string>Color Themes</string>
     </ArrayOfString>
   </ArrayOfArrayOfString>
 </ArrayOfArrayOfArrayOfString>

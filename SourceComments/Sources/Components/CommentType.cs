@@ -1,4 +1,20 @@
-﻿using  System ;
+﻿/**************************************************************************************************************
+
+    NAME
+	CommentType.cs
+
+    DESCRIPTION
+	Encapsulates a <comment-types> node and instanciate a CommentType object for each <comment-type> child node.
+
+    AUTHOR
+	Christian Vigh, 12/2015.
+
+    HISTORY
+	[Version : 1.0]		[Date : 2015/012/10]     [Author : CV]
+		Initial version.
+
+ **************************************************************************************************************/
+using  System ;
 using  System. Collections. Generic ;
 using  System. Linq ;
 using  System. Text ;
@@ -15,14 +31,14 @@ namespace Wuthering. WutheringComments
 
 		public		CommentTypes ( ) : base ( ) { }
 
-		public		CommentTypes ( XmlNode  node ) : base ( node )
+		public		CommentTypes ( XmlNode  node, string  subtag ) : base ( node, subtag )
 		   {
 		    }
 
 
-		public override void  Initialize ( XmlNode  node )
+		public override void  Initialize ( XmlNode  node, string  subtag )
 		   {
-			base. Initialize ( node ) ;
+			base. Initialize ( node, subtag ) ;
 
 			foreach  ( KeyValuePair<string, CommentType>  item  in  Items )
 			   {
