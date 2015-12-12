@@ -29,16 +29,18 @@ namespace Wuthering. WutheringComments
 		public	CommentType	Default		{ get ; private set ; }
 
 
-		public		CommentTypes ( ) : base ( ) { }
+		public		CommentTypes ( )
+		   { }
 
-		public		CommentTypes ( XmlNode  node, string  subtag ) : base ( node, subtag )
+		public		CommentTypes ( Comments  parent, XmlNode  node, string  subtag )
 		   {
+			Initialize ( parent, node, subtag ) ;
 		    }
 
 
-		public override void  Initialize ( XmlNode  node, string  subtag )
+		public override void  Initialize ( Comments  parent, XmlNode  node, string  subtag )
 		   {
-			base. Initialize ( node, subtag ) ;
+			base. Initialize ( parent, node, subtag ) ;
 
 			foreach  ( KeyValuePair<string, CommentType>  item  in  Items )
 			   {
@@ -57,16 +59,20 @@ namespace Wuthering. WutheringComments
 
 	public class CommentType	:  XmlCommentNode
 	   {
-		public		CommentType ( ) : base ( ) { }
+		// Node name (ie, the value of the "name" attribute)
+		public string		Name		{ get ; set ; }
 
-		public  CommentType ( XmlNode  node )
+		public		CommentType ( )
+		   { }
+
+		public  CommentType ( Comments  parent, XmlNode  node )
 		   {
-			Initialize ( node ) ;
+			Initialize ( parent, node ) ;
 		    }
 
-		public override void  Initialize ( XmlNode  node )
+		public override void  Initialize ( Comments  parent, XmlNode  node )
 		   {
-			base. Initialize ( node ) ;
+			base. Initialize ( parent, node ) ;
 
 			Name		=  GetAttributeValue ( "name" ) ;
 		    }

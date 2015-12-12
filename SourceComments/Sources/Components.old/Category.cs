@@ -28,29 +28,33 @@ namespace Wuthering. WutheringComments
 	   {
 		public		Categories ( ) : base ( ) { }
 
-		public		Categories ( XmlNode  node, string  subtag ) : base ( node, subtag )
+		public		Categories ( Comments  parent, XmlNode  node, string  subtag )
 		   {			
+			Initialize ( parent, node, subtag ) ;
 		    }
 	    }
 
 
 	public class Category	:  XmlCommentNode
 	   {
-		public string	Description	{  get ; set ; }
+		// Node name (ie, the value of the "name" attribute)
+		public override string	Name		{ get ; set ; }
+		public string		Description	{ get ; set ; }
 
 
-		public		Category ( ) : base ( ) { Compound = true ; }
+		public		Category ( ) 
+		   { Compound = true ; }
 
-		public  Category ( XmlNode  node )
+		public  Category ( Comments  parent, XmlNode  node )
 		   {
 			Compound = true ;
-			Initialize ( node ) ;
+			Initialize ( parent, node ) ;
 		    }
 
 
-		public override void  Initialize ( XmlNode  node )
+		public override void  Initialize ( Comments  parent, XmlNode  node )
 		   {
-			base. Initialize ( node ) ;
+			base. Initialize ( parent, node ) ;
 
 			Name		=  GetAttributeValue ( "name" ) ;
 			Description	=  GetAttributeValue ( "description" ) ;

@@ -29,20 +29,19 @@ using  System. Xml. Schema ;
 using  System. Xml. XPath ;
 
 using  Wuthering. WutheringComments ;
+using  Utilities ;
 
 
 namespace CommentsTestUI
    {
 	public partial class TestUI : Form
 	   {
-		internal XmlComments	CommentsDocument ;
-
 		public TestUI ( )
 		   {
 			InitializeComponent ( ) ;
 
-			InputXml. Text		=  XmlComments. StockDefinitions ;
-			GenerateXmlOutput ( XmlComments. StockDefinitions ) ;
+			InputXml. Text		=  CommentsParser. StockDefinitions ;
+			GenerateXmlOutput ( InputXml. Text ) ;
 		   }
 
 		// Command event handlers
@@ -59,29 +58,14 @@ namespace CommentsTestUI
 		/// <summary>
 		/// Generate xml output from the specified xml data to the OutputXml textbox.
 		/// </summary>
-		private void  GenerateXmlOutput ( string  data )
+		private void  GenerateXmlOutput ( string  xmldata )
 		   {
-			try
-			   {
-				CommentsDocument	=  new XmlComments ( ) ;
-
-				CommentsDocument. Load ( data ) ;
-				OutputXml. Text		=  CommentsDocument. ToXmlString ( ). Replace ( "\n", "\r\n" ) ;
-				OutputXml. Font		=  new Font ( OutputXml. Font, FontStyle. Regular ) ;
-				OutputXml. ForeColor	=  Color. Black ;
-				CheckOutputButton. Enabled	=  true ;
-			    }
-			catch  ( XmlException  e )
-			   {
-				string		message		=  "Parse error at line #" + e. LineNumber + ", character #" + 
-									e. LinePosition + " :\r\n\r\n" +
-									e. Message ;
-
-				OutputXml. Text		=  message ;
-				OutputXml. Font		=  new Font ( OutputXml. Font, FontStyle. Bold ) ;
-				OutputXml. ForeColor	=  Color. Red ;
-				CheckOutputButton. Enabled	=  false ;
-			    }
+			CommentsParser		parser	=  new CommentsParser ( xmldata ) ;
+			
+			if  ( parser. IsValid )
+			{
+				OutputXml.Text = "VALID!!!" ;
+			}
 		    }
 
 
@@ -91,11 +75,12 @@ namespace CommentsTestUI
 		/// </summary>
 		private void CheckXml ( string  text )
 		   {
+		   /*
 			XmlReaderSettings	settings		=  new XmlReaderSettings ( ) ;
 
 		
 			settings. Schemas. Add ( "http://schemas.wuthering-bytes.com",
-					XmlReader. Create ( new StringReader ( XmlComments. StockSchema ) ) ) ;
+					XmlReader. Create ( new StringReader ( CommentsParser. StockSchema ) ) ) ;
 			settings. ValidationType	=  ValidationType. Schema ;
 
 			XmlDocument	doc		=  new XmlDocument ( ) ;
@@ -131,11 +116,13 @@ namespace CommentsTestUI
 					String. Join ( "\r\n- ", errors ),
 					"Error"
 				    ) ;
+		    * */
 		    }
 
 
 		private void  ValidationHandler ( object  sender, ValidationEventArgs  e, List<string>  errors )
 		   {
+		   
 			errors. Add ( "[" + e. Severity. ToString ( ) + "] " + e. Message ) ;
 		    }
 	    }

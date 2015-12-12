@@ -1,11 +1,11 @@
 ﻿/**************************************************************************************************************
 
     NAME
-	Categories.cs
+	Group.cs
 
     DESCRIPTION
-	Encapsulates a <templates> node and instanciates a Template object for each <template> child node.
-	The Template object in turns creates a CommentBlock instance for each <comment> child node.
+	Encapsulates a <groups> node and instanciates a Group object for each <group> child node.
+	The Group object in turns creates a CommentBlock instance for each <comment> child node.
  
     AUTHOR
 	Christian Vigh, 12/2015.
@@ -25,46 +25,46 @@ using  System. Xml ;
 
 namespace Wuthering. WutheringComments
    {
-	public class Templates	:  XmlCommentListNode<Template>
+	public class Groups	:  XmlCommentListNode<Template>
 	   {
-		public	Template	Default		{ get ; private set ; }
+		public		Groups ( ) : base ( ) { }
 
-
-		public		Templates ( ) : base ( ) { }
-
-		public		Templates ( XmlNode  node, string  subtag ) : base ( node, subtag )
+		public		Groups ( Comments  parent, XmlNode  node, string  subtag )
 		   {
+			Initialize ( parent, node, subtag ) ;
 		    }
 
 
-		public override void  Initialize ( XmlNode  node, string  subtag )
+		public override void  Initialize ( Comments  parent, XmlNode  node, string  subtag )
 		   {
-			base. Initialize ( node, subtag ) ;
+			base. Initialize ( parent, node, subtag ) ;
 		    }
 	    }
 
 
-	public class Template	:  XmlCommentNode
+	public class Group	:  XmlCommentNode
 	   {
+		// Node name (ie, the value of the "name" attribute)
+		public string		Name		{ get ; set ; }
 		public string		Description	{  get ; set ; }
 		public CommentBlocks	CommentBlocks	{  get ; set ; }
 
 
-		public		Template ( ) : base ( ) { }
+		public		Group ( ) : base ( ) { }
 
-		public  Template ( XmlNode  node )
+		public  Group ( Comments  parent, XmlNode  node )
 		   {
-			Initialize ( node ) ;
+			Initialize ( parent, node ) ;
 		    }
 
 
-		public override void  Initialize ( XmlNode  node )
+		public override void  Initialize ( Comments  parent, XmlNode  node )
 		   {
-			base. Initialize ( node ) ;
+			base. Initialize ( parent, node ) ;
 
 			Name		=  GetAttributeValue ( "name" ) ;
 			Description	=  GetAttributeValue ( "description" ) ;
-			CommentBlocks	=  new CommentBlocks ( node, "comment" ) ;
+			CommentBlocks	=  new CommentBlocks ( parent, node, "comment" ) ;
 
 
 		    }

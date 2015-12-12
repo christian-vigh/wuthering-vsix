@@ -53,8 +53,9 @@ namespace Wuthering. WutheringComments
 	   {
 		public		CommentBlocks ( ) : base ( ) { }
 
-		public		CommentBlocks ( XmlNode  node, string  subtag ) : base ( node, subtag )
+		public		CommentBlocks ( Comments  parent, XmlNode  node, string  subtag ) 
 		   {
+			Initialize ( parent, node, subtag ) ;
 		    }
 
 
@@ -75,6 +76,8 @@ namespace Wuthering. WutheringComments
 
 	public class CommentBlock	:  XmlCommentNode
 	   {
+		// Node name (ie, the value of the "name" attribute)
+		public string		Name		{ get ; set ; }
 		public string		Category	{ get ; set ; }
 		public string []	TextLines	{ get ; private set ; }
 		protected string	UnderlyingText ;
@@ -82,9 +85,9 @@ namespace Wuthering. WutheringComments
 
 		public		CommentBlock ( ) : base ( ) { }
 
-		public  CommentBlock ( XmlNode  node )
+		public  CommentBlock ( Comments  parent, XmlNode  node )
 		   {
-			Initialize ( node ) ;
+			Initialize ( parent, node ) ;
 		    }
 
 
@@ -94,9 +97,9 @@ namespace Wuthering. WutheringComments
 			set { ParseText ( value ) ; }
 		    }
 
-		public override void  Initialize ( XmlNode  node )
+		public override void  Initialize ( Comments  parent, XmlNode  node )
 		   {
-			base. Initialize ( node ) ;
+			base. Initialize ( parent, node ) ;
 
 			Name		=  
 			Category	=  GetAttributeValue ( "category" ) ;

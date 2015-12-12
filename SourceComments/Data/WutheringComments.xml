@@ -1,19 +1,15 @@
-﻿<wuthering-comments xs:schemaLocation="http://schemas.wuthering-bytes.com/2015-12-10/WutheringBytes.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+﻿<wuthering-comments>
 	
-	<author name="Ademar Letracteur" initials="AL" email="ademar.letracteur@gmail.com" website="www.ademar-letracteur.com"/>
+	<author zz="ee" name="Ademar Letracteur" initials="AL" email="ademar.letracteur@gmail.com" website="www.ademar-letracteur.com"/>
 
 	<categories>
-		<category name="block">Thick code block comment</category>
-		<category name="class">Comment inserted before a class definition</category>
-		<category name="code">Multiline comment inserted before a code block</category>
-		<category name="file">Comment inserted at the top of a source file</category>
-		<category name="function">Comment inserted before a function</category>
-		<category name="method">Comment inserted before a method</category>
+		<category name="block"		description="Thick block comment"/>
+		<category name="class"		description="Comment inserted before a class definition"/>
+		<category name="code"		description="Multiline comment inserted before a code block"/>
+		<category name="file"		description="Comment inserted at the top of a source file"/>
+		<category name="function"	description="Comment inserted before a function"/>
+		<category name="method"		description="Comment inserted before a method"/>
 	</categories>
-
-	<comment-types>
-		<comment-type name="custom"/>
-	</comment-types>
 
 	<templates>
 		<template name="c-like" description="C-like comment constructs">

@@ -17,22 +17,8 @@
 						<xs:sequence>
 							<xs:element minOccurs="1" maxOccurs="unbounded" name="category">
 								<xs:complexType>
-									<xs:simpleContent>
-										<xs:extension base="xs:string">
-											<xs:attribute name="name" type="xs:string" use="required" />
-										</xs:extension>
-									</xs:simpleContent>
-								</xs:complexType>
-							</xs:element>
-						</xs:sequence>
-					</xs:complexType>
-				</xs:element>
-				<xs:element name="comment-types">
-					<xs:complexType>
-						<xs:sequence>
-							<xs:element name="comment-type" minOccurs="1" maxOccurs="unbounded">
-								<xs:complexType>
 									<xs:attribute name="name" type="xs:string" use="required" />
+									<xs:attribute name="description" type="xs:string" use="required" />
 								</xs:complexType>
 							</xs:element>
 						</xs:sequence>

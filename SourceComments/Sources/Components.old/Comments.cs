@@ -40,9 +40,10 @@ namespace Wuthering. WutheringComments
 		public  Categories		Categories	{ get ; private set ; }
 		public  CommentTypes		CommentTypes	{ get ; private set ; }
 		public  Templates		Templates	{ get ; private set ; }
+		public	Groups			Groups		{ get ; private set ; }
 
 
-		public  Comments  ( XmlNode  root ) : base ( root )
+		public  Comments  ( XmlNode  root ) : base ( null, root )
 		   {
 			Compound	=  true ;
 
@@ -51,19 +52,19 @@ namespace Wuthering. WutheringComments
 				switch  ( CommentNode. Name. ToLower ( ) )
 				   {
 					case	"author" :
-						Author		=  new Author ( CommentNode ) ;
+						Author		=  new Author ( this, CommentNode ) ;
 						break ;
 
 					case	"categories" :
-						Categories	=  new Categories ( CommentNode, "category" ) ;
+						Categories	=  new Categories ( this, CommentNode, "category" ) ;
 						break ;
 
 					case	"comment-types" :
-						CommentTypes	=  new CommentTypes ( CommentNode, "comment-type" ) ;
+						CommentTypes	=  new CommentTypes ( this, CommentNode, "comment-type" ) ;
 						break ;
 
 					case	"templates" :
-						Templates	=  new Templates ( CommentNode, "template" ) ;
+						Templates	=  new Templates ( this, CommentNode, "template" ) ;
 						break ;
 				    }
 			    }

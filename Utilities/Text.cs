@@ -29,7 +29,7 @@ namespace Utilities
 		/// </summary>
 		/// <param name="text">String object</param>
 		/// <param name="tabsize">Number of spaces represented by a tab.</param>
-		/// <param name="stop_at_first_nonspace">When true, expansion stops aatthe first nonspace character.</param>
+		/// <param name="stop_at_first_nonspace">When true, expansion stops at the first nonspace character.</param>
 		/// <returns>The expanded string.</returns>
 		public static string  ExpandTabs ( this string		text, 
 						   int			tabsize			=  8, 

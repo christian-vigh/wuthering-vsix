@@ -1,7 +1,7 @@
 ﻿/**************************************************************************************************************
 
     NAME
-	XmlComments.cs
+	CommentsParser.cs
 
     DESCRIPTION
 	A class to load a <wuthering-comments> definition from string/resource/file and save it to a file.
@@ -30,7 +30,7 @@ namespace Wuthering. WutheringComments
 	/// Class used to parse comment definitions from a string. This is also the base class for
 	/// the XmlFileComments and XmlResourceComments classes.
 	/// </summary>
-	public class XmlComments
+	public class CommentsParser
 	   {
 		// The whole definitions tree stored as an object hierarchy
 		public Comments		Contents		{ get ; private set ; }
@@ -47,13 +47,13 @@ namespace Wuthering. WutheringComments
 		/// Static constructor. Retrieves the contents of the xml definitions and xsd files embedded in
 		/// the resources.
 		/// </summary>
-		static  XmlComments ( )
+		static  CommentsParser ( )
 		   {
 			StockDefinitions	=  WutheringCommentsPackage. Resources. WutheringCommentsXml ;
 			StockSchema		=  WutheringCommentsPackage. Resources. WutheringCommentsXsd ;
 		    }
 
-		public  XmlComments ( )
+		public  CommentsParser ( )
 		   {
 		    }
 
@@ -97,7 +97,7 @@ namespace Wuthering. WutheringComments
 	/// <summary>
 	/// Loads &lt;wuthering-comments&gt; definitions from a file.
 	/// </summary>
-	public class   XmlFileComments		:  XmlComments
+	public class   XmlFileComments		:  CommentsParser
 	   {
 		public string	Filename	{ get ; private set ; }
 

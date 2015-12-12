@@ -29,21 +29,24 @@ namespace Wuthering. WutheringComments
 	/// </summary>
 	public class XmlCommentNode
 	   {
+		// Parent XmlComments root object
+		public	Comments	Parent ;
 		// Original xml node
 		public	XmlNode		Node		{ get ; protected set ; }
 		// Node nesting level (0 = root tag). The document element is not included into this count
 		public  int		NestingLevel	{ get ; protected set ; }
-		// Node name (ie, the value of the "name" attribute, if defined for this kind of tag
-		public string		Name		{ get ; set ; }
+		// Node text
+		public virtual string	Name		{  get ; set ; }
 		// Node text
 		public virtual string	Text		{  get ; set ; }
 		// Indicates whether this node contains children (XmlCommentListNode class)
 		protected bool		Compound	=  false ;
+		
 
 
-		public XmlCommentNode ( XmlNode  nd )
+		public XmlCommentNode ( Comments  parent, XmlNode  nd )
 		   {
-			Initialize ( nd ) ;
+			Initialize ( parent, nd ) ;
 		    }
 
 
@@ -60,8 +63,9 @@ namespace Wuthering. WutheringComments
 		   { }
 
 
-		public virtual  void	Initialize ( XmlNode  nd )
+		public virtual  void	Initialize ( Comments  parent, XmlNode  nd )
 		   {
+			Parent		=  parent ;
 			Node		=  nd ;
 			Text		=  GetNodeText ( false ) ;
 			NestingLevel	=  0 ;
@@ -229,19 +233,19 @@ namespace Wuthering. WutheringComments
 		   { Compound = true ; }
 
 
-		public XmlCommentListNode ( XmlNode  nd, string  subtag ) : base ( nd )
+		public XmlCommentListNode ( Comments  parent, XmlNode  nd, string  subtag )
 		   {
 			Compound	=  true ;
-			Initialize ( nd, subtag ) ;
+			Initialize ( parent, nd, subtag ) ;
 		    }
 
 
 		/// <summary>
 		/// Initialize this instance and instanciates every child node.
 		/// </summary>
-		public virtual void	Initialize ( XmlNode  nd, string  subtag )
+		public virtual void	Initialize ( Comments  parent, XmlNode  nd, string  subtag )
 		   {
-			base. Initialize ( nd ) ;
+			base. Initialize ( parent, nd ) ;
 
 			Items		=  new Dictionary<string,T> ( StringComparer. CurrentCultureIgnoreCase ) ;
 			SubtagName	=  subtag ;
@@ -253,7 +257,7 @@ namespace Wuthering. WutheringComments
 				// Only retain nodes having the specified tag
 				if  ( String. Compare ( child. Name, subtag, true )  ==  0 )
 				   {
-					item. Initialize ( child ) ;
+					item. Initialize ( parent, child ) ;
 					Items [ item. Name ]	=  item ;
 				    }
 			    }

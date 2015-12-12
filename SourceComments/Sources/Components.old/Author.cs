@@ -26,12 +26,14 @@ namespace Wuthering. WutheringComments
    {
 	public class Author	:  XmlCommentNode
 	   {
-		public string	Initials	{  get ; set ; }
-		public string	Email		{  get ; set ; }
-		public string	WebSite		{  get ; set ; } 
+		// Node name (ie, the value of the "name" attribute)
+		public override string	Name		{ get ; set ; }
+		public string		Initials	{  get ; set ; }
+		public string		Email		{  get ; set ; }
+		public string		WebSite		{  get ; set ; } 
 
 
-		public  Author ( XmlNode  node ) : base ( node )
+		public  Author ( Comments  parent, XmlNode  node ) : base ( parent, node )
 		   {
 			Name		=  GetAttributeValue ( "name" ) ;
 			Initials	=  GetAttributeValue ( "initials" ) ;

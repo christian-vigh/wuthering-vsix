@@ -121,14 +121,7 @@
     </COMReference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Sources\Components\CommentBlock.cs" />
-    <Compile Include="Sources\Components\Template.cs" />
-    <Compile Include="Sources\Components\Author.cs" />
-    <Compile Include="Sources\Components\CommentType.cs" />
-    <Compile Include="Sources\Components\Category.cs" />
-    <Compile Include="Sources\Components\Comments.cs" />
-    <Compile Include="Sources\Components\XmlCommentBase.cs" />
-    <Compile Include="Sources\Components\XmlComments.cs" />
+    <Compile Include="Sources\Components\CommentsParser.cs" />
     <Compile Include="Sources\Symbols.cs" />
     <Compile Include="Resources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -136,7 +129,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="GlobalSuppressions.cs" />
-    <Compile Include="Sources\WutheringComments.cs" />
+    <Compile Include="Sources\WutheringCommentsPackage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
