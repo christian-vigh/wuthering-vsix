@@ -28,6 +28,7 @@ using  System. Xml ;
 using  System. Xml. Schema ;
 using  System. Xml. XPath ;
 
+using  Thrak. Xml ;
 using  Wuthering. WutheringComments ;
 using  Utilities ;
 
@@ -39,10 +40,16 @@ namespace CommentsTestUI
 		public TestUI ( )
 		   {
 			InitializeComponent ( ) ;
+		   }
 
+
+		// Form event handlers
+		private void  TestUI_Shown ( object  sender, EventArgs  e )
+		   {
 			InputXml. Text		=  CommentsParser. StockDefinitions ;
 			GenerateXmlOutput ( InputXml. Text ) ;
-		   }
+		    }
+
 
 		// Command event handlers
 		private void GenerateButton_Click ( object sender, EventArgs e )
@@ -63,67 +70,60 @@ namespace CommentsTestUI
 			CommentsParser		parser	=  new CommentsParser ( xmldata ) ;
 			
 			if  ( parser. IsValid )
-			{
+			   {
+				CheckOutputButton. Enabled	=  true ;
 				OutputXml.Text = "VALID!!!" ;
-			}
+			    }
+			else
+				DisplayParseErrors ( parser ) ;
+		    }
+
+
+		/// <summary>
+		/// Displays parsing errors in a modal form.
+		/// </summary>
+		private void  DisplayParseErrors ( CommentsParser  parser )
+		   {
+			CheckOutputButton. Enabled	=  false ;
+				
+			DisplayErrorsForm	form	=  new DisplayErrorsForm ( ) ;
+
+			foreach  ( XmlParseError e  in  parser. ValidationMessages )
+			   {
+				form. ErrorList. Items. Add
+				  (
+					new ListViewItem 
+					   (
+						new string [] 
+						   {
+							 e. Step. ToString ( ),
+							 e. Severity. ToString ( ),
+							 e. Line. ToString ( ),
+							 e. Column. ToString ( ),
+							 ( String. IsNullOrEmpty ( e. SourceUri ) ) ?
+								e. Source : e. SourceUri,
+							 e. Message
+						    }
+					    )
+				   ) ;
+			    }
+
+			form. ShowDialog ( ) ;
 		    }
 
 
 		/// <summary>
 		/// Checks (validates) the specified xml data.
-		/// FIX: Validation detects nothing.
 		/// </summary>
 		private void CheckXml ( string  text )
 		   {
-		   /*
-			XmlReaderSettings	settings		=  new XmlReaderSettings ( ) ;
-
-		
-			settings. Schemas. Add ( "http://schemas.wuthering-bytes.com",
-					XmlReader. Create ( new StringReader ( CommentsParser. StockSchema ) ) ) ;
-			settings. ValidationType	=  ValidationType. Schema ;
-
-			XmlDocument	doc		=  new XmlDocument ( ) ;
-			List<string>	errors		=  new List<string> ( ) ;
-
-			try
-			   {
-				doc. Load ( XmlReader. Create ( new StringReader ( text ), settings ) ) ;
-			    }
-			catch  ( XmlException  e )
-			   {
-				string		message		=  "Parse error at line #" + e. LineNumber + ", character #" + 
-									e. LinePosition + " :\r\n\r\n" +
-									e. Message ;
-
-				MessageBox. Show ( message ) ;
+			CommentsParser		parser	=  new CommentsParser ( text ) ;
 			
-				return ;
-			    }
-
-			doc. Validate ( 
-				new ValidationEventHandler 
-				   ( 
-					( object  sender, ValidationEventArgs  e ) => { ValidationHandler ( sender, e, errors ) ; } 
-				    ) ) ;
-
-			if  ( errors. Count  ==  0 )
-				MessageBox. Show ( "Document is valid.", "Information" ) ;
+			if  ( parser. IsValid )
+				MessageBox. Show ( "Xml contents are valid" ) ;
 			else
-				MessageBox. Show
-				   (
-					"XSD validation detected the following errors :\r\n- " +
-					String. Join ( "\r\n- ", errors ),
-					"Error"
-				    ) ;
-		    * */
-		    }
+				DisplayParseErrors ( parser ) ;
 
-
-		private void  ValidationHandler ( object  sender, ValidationEventArgs  e, List<string>  errors )
-		   {
-		   
-			errors. Add ( "[" + e. Severity. ToString ( ) + "] " + e. Message ) ;
 		    }
 	    }
     }

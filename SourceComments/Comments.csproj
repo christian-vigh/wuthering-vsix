@@ -171,6 +171,10 @@
     <Content Include="Resources\Package.ico" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\..\Libraries\Thrak\Thrak.csproj">
+      <Project>{ef0f1d8c-6a59-4cd4-99eb-22ba3b7bb150}</Project>
+      <Name>Thrak</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Utilities\Utilities.csproj">
       <Project>{5e7b85ea-41a4-447c-9f57-ec8240e04866}</Project>
       <Name>Utilities</Name>

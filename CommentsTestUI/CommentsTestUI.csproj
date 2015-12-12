@@ -44,6 +44,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DisplayErrorsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DisplayErrorsForm.Designer.cs">
+      <DependentUpon>DisplayErrorsForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="TestUI.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -52,6 +58,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="DisplayErrorsForm.resx">
+      <DependentUpon>DisplayErrorsForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="TestUI.resx">
       <DependentUpon>TestUI.cs</DependentUpon>
     </EmbeddedResource>
@@ -78,6 +87,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\..\Libraries\Thrak\Thrak.csproj">
+      <Project>{ef0f1d8c-6a59-4cd4-99eb-22ba3b7bb150}</Project>
+      <Name>Thrak</Name>
+    </ProjectReference>
     <ProjectReference Include="..\SourceComments\Comments.csproj">
       <Project>{66499bb5-223f-495d-8ddd-97da479f3138}</Project>
       <Name>Comments</Name>

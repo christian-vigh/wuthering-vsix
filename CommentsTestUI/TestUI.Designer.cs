@@ -32,6 +32,7 @@
 			this.panel2 = new System.Windows.Forms.Panel();
 			this.InputXml = new System.Windows.Forms.TextBox();
 			this.panel1 = new System.Windows.Forms.Panel();
+			this.CheckInputButton = new System.Windows.Forms.Button();
 			this.GenerateButton = new System.Windows.Forms.Button();
 			this.label1 = new System.Windows.Forms.Label();
 			this.panel4 = new System.Windows.Forms.Panel();
@@ -39,7 +40,6 @@
 			this.panel3 = new System.Windows.Forms.Panel();
 			this.CheckOutputButton = new System.Windows.Forms.Button();
 			this.label2 = new System.Windows.Forms.Label();
-			this.CheckInputButton = new System.Windows.Forms.Button();
 			((System.ComponentModel.ISupportInitialize)(this.Splitter)).BeginInit();
 			this.Splitter.Panel1.SuspendLayout();
 			this.Splitter.Panel2.SuspendLayout();
@@ -103,6 +103,17 @@
 			this.panel1.Name = "panel1";
 			this.panel1.Size = new System.Drawing.Size(405, 24);
 			this.panel1.TabIndex = 3;
+			// 
+			// CheckInputButton
+			// 
+			this.CheckInputButton.Dock = System.Windows.Forms.DockStyle.Right;
+			this.CheckInputButton.Location = new System.Drawing.Point(255, 0);
+			this.CheckInputButton.Name = "CheckInputButton";
+			this.CheckInputButton.Size = new System.Drawing.Size(75, 24);
+			this.CheckInputButton.TabIndex = 2;
+			this.CheckInputButton.Text = "&Check";
+			this.CheckInputButton.UseVisualStyleBackColor = true;
+			this.CheckInputButton.Click += new System.EventHandler(this.CheckInputButton_Click);
 			// 
 			// GenerateButton
 			// 
@@ -177,17 +188,6 @@
 			this.label2.TabIndex = 0;
 			this.label2.Text = "Output Xml :";
 			// 
-			// CheckInputButton
-			// 
-			this.CheckInputButton.Dock = System.Windows.Forms.DockStyle.Right;
-			this.CheckInputButton.Location = new System.Drawing.Point(255, 0);
-			this.CheckInputButton.Name = "CheckInputButton";
-			this.CheckInputButton.Size = new System.Drawing.Size(75, 24);
-			this.CheckInputButton.TabIndex = 2;
-			this.CheckInputButton.Text = "&Check";
-			this.CheckInputButton.UseVisualStyleBackColor = true;
-			this.CheckInputButton.Click += new System.EventHandler(this.CheckInputButton_Click);
-			// 
 			// TestUI
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
@@ -198,6 +198,7 @@
 			this.Name = "TestUI";
 			this.Text = "Test UI for Wuthering Comments";
 			this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+			this.Shown += new System.EventHandler(this.TestUI_Shown);
 			this.Splitter.Panel1.ResumeLayout(false);
 			this.Splitter.Panel2.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)(this.Splitter)).EndInit();

@@ -1,6 +1,6 @@
 ﻿<wuthering-comments>
 	
-	<author zz="ee" name="Ademar Letracteur" initials="AL" email="ademar.letracteur@gmail.com" website="www.ademar-letracteur.com"/>
+	<author name="Ademar Letracteur" initials="AL" email="ademar.letracteur@gmail.com" website="www.ademar-letracteur.com"/>
 
 	<categories>
 		<category name="block"		description="Thick block comment"/>
