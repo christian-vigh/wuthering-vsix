@@ -28,6 +28,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <PlatformTarget>AnyCPU</PlatformTarget>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -121,7 +122,13 @@
     </COMReference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Sources\Components\CommentsParser.cs" />
+    <Compile Include="Sources\Components\Author.cs" />
+    <Compile Include="Sources\Components\Categories.cs" />
+    <Compile Include="Sources\Components\Comments.cs" />
+    <Compile Include="Sources\Components\Parser.cs" />
+    <Compile Include="Sources\Components\Groups.cs" />
+    <Compile Include="Sources\Components\Templates.cs" />
+    <Compile Include="Sources\Components\Wrappers.cs" />
     <Compile Include="Sources\Symbols.cs" />
     <Compile Include="Resources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -180,7 +187,9 @@
       <Name>Utilities</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
   <PropertyGroup>
     <UseCodebase>true</UseCodebase>
   </PropertyGroup>

@@ -34,7 +34,7 @@
 
 				  ==============================================================================================================*/
 			</comment>
-			<comment category="standard">
+			<comment category="code">
 				/*==============================================================================================================
 
 
@@ -87,7 +87,7 @@
 	</templates>
 
 	<groups>
-		<group language="php" type="custom" extensions="php php3 php4 php5 phpclass phpinclude phpscript phs phpinc">
+		<group language="php" extensions="php php3 php4 php5 phpclass phpinclude phpscript phs phpinc">
 			<comment category="block"	template="c-like"/>
 			<comment category="class"	template="c-like"/>
 			<comment category="method"	template="c-like" template-category="function"/>
@@ -99,6 +99,20 @@
 
 
 				 ***/
+			</comment>
+		</group>
+		<group language="php" extensions="php php3 php4 php5 phpclass phpinclude phpscript phs phpinc">
+			<comment category="block"	template="c-like"/>
+			<comment category="class"	template="c-like"/>
+			<comment category="method"	template="c-like" template-category="function"/>
+			<comment category="function"	template="c-like"/>
+			<comment category="file"	template="c-like"/>
+			<comment category="standard">
+				/***
+
+
+
+				***/
 			</comment>
 		</group>
 	</groups>

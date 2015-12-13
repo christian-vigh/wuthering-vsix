@@ -72,7 +72,7 @@ namespace CommentsTestUI
 			if  ( parser. IsValid )
 			   {
 				CheckOutputButton. Enabled	=  true ;
-				OutputXml.Text = "VALID!!!" ;
+				OutputXml.Text			=  parser. ToString ( ) ;
 			    }
 			else
 				DisplayParseErrors ( parser ) ;

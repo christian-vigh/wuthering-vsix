@@ -66,7 +66,6 @@
 										</xs:element>
 									</xs:sequence>
 									<xs:attribute name="language" type="xs:string" use="required" />
-									<xs:attribute name="type" type="xs:string" use="required" />
 									<xs:attribute name="extensions" type="xs:string" use="required" />
 								</xs:complexType>
 							</xs:element>
