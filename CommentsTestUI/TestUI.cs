@@ -61,6 +61,8 @@ namespace CommentsTestUI
 		private void CheckInputButton_Click ( object sender, EventArgs e )
 		   { CheckXml ( InputXml.Text ) ; }
 
+		private void EditButton_Click ( object sender, EventArgs e )
+		   { EditXml ( InputXml, OutputXml ) ; }
 
 		/// <summary>
 		/// Generate xml output from the specified xml data to the OutputXml textbox.
@@ -123,6 +125,17 @@ namespace CommentsTestUI
 				MessageBox. Show ( "Xml contents are valid" ) ;
 			else
 				DisplayParseErrors ( parser ) ;
+
+		    }
+
+
+		/// <summary>
+		/// Allows editing of xml definitions, using the vsix editor form.
+		/// </summary>
+		private void  EditXml ( TextBox  input, TextBox  output )
+		   {
+			string		text		=  input. Text ;
+
 
 		    }
 	    }

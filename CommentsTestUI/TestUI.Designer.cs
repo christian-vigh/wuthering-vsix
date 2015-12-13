@@ -40,6 +40,7 @@
 			this.panel3 = new System.Windows.Forms.Panel();
 			this.CheckOutputButton = new System.Windows.Forms.Button();
 			this.label2 = new System.Windows.Forms.Label();
+			this.EditButton = new System.Windows.Forms.Button();
 			((System.ComponentModel.ISupportInitialize)(this.Splitter)).BeginInit();
 			this.Splitter.Panel1.SuspendLayout();
 			this.Splitter.Panel2.SuspendLayout();
@@ -95,6 +96,7 @@
 			// 
 			// panel1
 			// 
+			this.panel1.Controls.Add(this.EditButton);
 			this.panel1.Controls.Add(this.CheckInputButton);
 			this.panel1.Controls.Add(this.GenerateButton);
 			this.panel1.Controls.Add(this.label1);
@@ -188,6 +190,17 @@
 			this.label2.TabIndex = 0;
 			this.label2.Text = "Output Xml :";
 			// 
+			// EditButton
+			// 
+			this.EditButton.Dock = System.Windows.Forms.DockStyle.Right;
+			this.EditButton.Location = new System.Drawing.Point(180, 0);
+			this.EditButton.Name = "EditButton";
+			this.EditButton.Size = new System.Drawing.Size(75, 24);
+			this.EditButton.TabIndex = 3;
+			this.EditButton.Text = "&Edit";
+			this.EditButton.UseVisualStyleBackColor = true;
+			this.EditButton.Click += new System.EventHandler(this.EditButton_Click);
+			// 
 			// TestUI
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
@@ -229,6 +242,7 @@
 		private System. Windows. Forms. Button GenerateButton;
 		private System. Windows. Forms. Button CheckOutputButton;
 		private System. Windows. Forms. Button CheckInputButton;
+		private System. Windows. Forms. Button EditButton;
 
 	}
 }
