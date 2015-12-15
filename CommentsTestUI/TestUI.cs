@@ -46,7 +46,7 @@ namespace CommentsTestUI
 		// Form event handlers
 		private void  TestUI_Shown ( object  sender, EventArgs  e )
 		   {
-			InputXml. Text		=  CommentsParser. StockDefinitions ;
+			InputXml. Text		=  XmlCommentsDocument. StockDefinitions ;
 			GenerateXmlOutput ( InputXml. Text ) ;
 		    }
 
@@ -69,7 +69,7 @@ namespace CommentsTestUI
 		/// </summary>
 		private void  GenerateXmlOutput ( string  xmldata )
 		   {
-			CommentsParser		parser	=  new CommentsParser ( xmldata ) ;
+			XmlCommentsDocument		parser	=  new XmlCommentsDocument ( xmldata ) ;
 			
 			if  ( parser. IsValid )
 			   {
@@ -84,7 +84,7 @@ namespace CommentsTestUI
 		/// <summary>
 		/// Displays parsing errors in a modal form.
 		/// </summary>
-		private void  DisplayParseErrors ( CommentsParser  parser )
+		private void  DisplayParseErrors ( XmlCommentsDocument  parser )
 		   {
 			CheckOutputButton. Enabled	=  false ;
 				
@@ -119,7 +119,7 @@ namespace CommentsTestUI
 		/// </summary>
 		private void CheckXml ( string  text )
 		   {
-			CommentsParser		parser	=  new CommentsParser ( text ) ;
+			XmlCommentsDocument		parser	=  new XmlCommentsDocument ( text ) ;
 			
 			if  ( parser. IsValid )
 				MessageBox. Show ( "Xml contents are valid" ) ;
@@ -134,9 +134,14 @@ namespace CommentsTestUI
 		/// </summary>
 		private void  EditXml ( TextBox  input, TextBox  output )
 		   {
-			string		text		=  input. Text ;
+			string				text		=  input. Text ;
+			DialogResult			status ;
+			WutheringCommentsEditor		editor		=  new WutheringCommentsEditor ( text ) ;
 
+			status	=  editor. ShowDialog ( ) ;
+			MessageBox.Show ( status.ToString ( ) ) ;
 
+			editor. Dispose ( ) ;
 		    }
 	    }
     }

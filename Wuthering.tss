@@ -1,2 +1,22 @@
 <?xml version="1.0"?>
-<ArrayOfArrayOfArrayOfString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" />
+<ArrayOfArrayOfArrayOfString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <ArrayOfArrayOfString>
+    <ArrayOfString>
+      <string>E:\Visual Studio\Projects\VSIX\Wuthering\SourceComments\Sources\Components\Wrappers.cs</string>
+    </ArrayOfString>
+    <ArrayOfString>
+      <string>E:\Visual Studio\Projects\VSIX\Wuthering\CommentsTestUI\TestUI.cs</string>
+      <string>E:\Visual Studio\Projects\VSIX\Wuthering\CommentsTestUI\TestUI.cs</string>
+    </ArrayOfString>
+    <ArrayOfString>
+      <string>E:\Visual Studio\Projects\VSIX\Wuthering\SourceComments\Sources\Forms\WutheringCommentsEditor.cs</string>
+      <string>E:\Visual Studio\Projects\VSIX\Wuthering\SourceComments\Sources\Forms\WutheringCommentsEditor.cs</string>
+    </ArrayOfString>
+    <ArrayOfString>
+      <string>E:\Visual Studio\Projects\VSIX\Wuthering\SourceComments\Sources\Components\Comments.cs</string>
+    </ArrayOfString>
+    <ArrayOfString>
+      <string>E:\Visual Studio\Projects\VSIX\Wuthering\SourceComments\Sources\Components\CommentsDocument.cs</string>
+    </ArrayOfString>
+  </ArrayOfArrayOfString>
+</ArrayOfArrayOfArrayOfString>

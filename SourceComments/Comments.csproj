@@ -125,7 +125,7 @@
     <Compile Include="Sources\Components\Author.cs" />
     <Compile Include="Sources\Components\Categories.cs" />
     <Compile Include="Sources\Components\Comments.cs" />
-    <Compile Include="Sources\Components\Parser.cs" />
+    <Compile Include="Sources\Components\CommentsDocument.cs" />
     <Compile Include="Sources\Components\Groups.cs" />
     <Compile Include="Sources\Components\Templates.cs" />
     <Compile Include="Sources\Components\Wrappers.cs" />

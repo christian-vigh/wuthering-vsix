@@ -51,13 +51,13 @@ namespace Wuthering. WutheringComments
 			StringBuilder	result	=  new StringBuilder ( ) ;
 
 			result. Append ( Node. GetOpeningTag ( ) ) ;
-			result. Append ( CommentsParser. EOL ) ;
+			result. Append ( XmlCommentsDocument. EOL ) ;
 
 			foreach  ( string  line  in  TextLines )
 			   {
 				result. Append ( '\t' ) ;
 				result. Append ( line ) ;
-				result. Append ( CommentsParser. EOL ) ;
+				result. Append ( XmlCommentsDocument. EOL ) ;
 			    }
 
 			result. Append ( Node. GetClosingTag ( ) ) ;

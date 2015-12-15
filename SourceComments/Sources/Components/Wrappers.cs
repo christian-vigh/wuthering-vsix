@@ -277,13 +277,13 @@ namespace Wuthering. WutheringComments
 			StringBuilder	result	=  new StringBuilder ( ) ;
 
 			result. Append ( Node. GetOpeningTag ( ) ) ;
-			result. Append ( CommentsParser. EOL ) ;
+			result. Append ( XmlCommentsDocument. EOL ) ;
 
 			foreach  ( T  item in NodeList )
 			   {
 				result. Append ( '\t' ) ;
 				result. Append ( item. ToString ( ). Replace ( "\n", "\n\t" ) ) ;
-				result. Append ( CommentsParser. EOL ) ;
+				result. Append ( XmlCommentsDocument. EOL ) ;
 			    }
 
 			result. Append ( Node. GetClosingTag ( ) ) ;
@@ -350,13 +350,13 @@ namespace Wuthering. WutheringComments
 			StringBuilder	result	=  new StringBuilder ( ) ;
 
 			result. Append ( Node. GetOpeningTag ( ) ) ;
-			result. Append ( CommentsParser. EOL ) ;
+			result. Append ( XmlCommentsDocument. EOL ) ;
 
 			foreach  ( T comment  in  Comments )
 			   { 
 				result. Append ( '\t' ) ;
 				result. Append ( comment. ToString ( ). Replace ( "\n", "\n\t" ) ) ;
-				result. Append ( CommentsParser. EOL ) ;
+				result. Append ( XmlCommentsDocument. EOL ) ;
 			     }
 
 			result. Append ( Node. GetClosingTag ( ) ) ;

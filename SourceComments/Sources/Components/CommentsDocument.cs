@@ -1,10 +1,10 @@
 ﻿/**************************************************************************************************************
 
     NAME
-	XmlComments.cs
+	CommentsDocument.cs
 
     DESCRIPTION
-	A class to load a <wuthering-comments> definition from string/resource/file and save it to a file.
+	A class to load a <wuthering-comments> definition from string and save it to a file.
 
     AUTHOR
 	Christian Vigh, 12/2015.
@@ -29,7 +29,7 @@ using  Thrak. Xml ;
 
 namespace Wuthering. WutheringComments
    {
-	public class CommentsParser	: XmlValidatedDocument
+	public class XmlCommentsDocument	: XmlValidatedDocument
 	   {
 		internal const string		EOL		=  "\r\n" ;
 
@@ -47,7 +47,7 @@ namespace Wuthering. WutheringComments
 		/// Static constructor. Retrieves the contents of the xml definitions and xsd files embedded in
 		/// the resources.
 		/// </summary>
-		static  CommentsParser ( )
+		static  XmlCommentsDocument ( )
 		   {
 			StockDefinitions	=  WutheringCommentsPackage. Resources. WutheringCommentsXml ;
 			StockSchema		=  WutheringCommentsPackage. Resources. WutheringCommentsXsd ;
@@ -57,7 +57,7 @@ namespace Wuthering. WutheringComments
 		/// <summary>
 		/// Loads and validates the specified xml data, which holds a <wuthering-comments> definition.
 		/// </summary>
-		public CommentsParser ( string  xml_data  =  null ) :
+		public XmlCommentsDocument ( string  xml_data  =  null ) :
 				base  ( ( xml_data  ==  null ) ?  StockDefinitions : xml_data, StockSchema )
 		   { }
 

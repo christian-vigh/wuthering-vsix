@@ -75,13 +75,13 @@ namespace Wuthering. WutheringComments
 			StringBuilder	result	=  new StringBuilder ( ) ;
 
 			result. Append ( Node. GetOpeningTag ( ) ) ;
-			result. Append ( CommentsParser. EOL ) ;
+			result. Append ( XmlCommentsDocument. EOL ) ;
 
 			foreach  ( Category  category in NodeList )
 			   {
 				result. Append ( '\t' ) ;
 				result. Append ( category. ToString ( ) ) ;
-				result. Append ( CommentsParser. EOL ) ;
+				result. Append ( XmlCommentsDocument. EOL ) ;
 			    }
 
 			result. Append ( Node. GetClosingTag ( ) ) ;
