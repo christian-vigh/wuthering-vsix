@@ -22,14 +22,14 @@ namespace Wuthering.WutheringCommentsPackage {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Resources {
+    internal class VSPackage {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal Resources() {
+        internal VSPackage() {
         }
         
         /// <summary>
@@ -39,7 +39,7 @@ namespace Wuthering.WutheringCommentsPackage {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Wuthering.WutheringCommentsPackage.Resources", typeof(Resources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Wuthering.WutheringCommentsPackage.VSPackage", typeof(VSPackage).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -61,38 +61,30 @@ namespace Wuthering.WutheringCommentsPackage {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &lt;wuthering-comments xs:schemaLocation=&quot;http://schemas.wuthering-bytes.com/2015-12-10/WutheringBytes.xsd&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot;&gt;
-        ///	
-        ///	&lt;author  name=&quot;Ademar Letracteur&quot; initials=&quot;AL&quot; email=&quot;ademar.letracteur@gmail.com&quot; website=&quot;www.ademar-letracteur.com&quot;/&gt;
-        ///
-        ///	&lt;categories&gt;
-        ///		&lt;category name=&quot;block&quot;&gt;Thick code block comment&lt;/category&gt;
-        ///		&lt;category name=&quot;class&quot;&gt;Comment inserted before a class definition&lt;/category&gt;
-        ///		&lt;category name=&quot;code&quot;&gt;Multiline comment inserted before a code block&lt;/cat [rest of string was truncated]&quot;;.
+        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
         /// </summary>
-        internal static string WutheringCommentsXml {
+        internal static System.Drawing.Icon _400 {
             get {
-                return ResourceManager.GetString("WutheringCommentsXml", resourceCulture);
+                object obj = ResourceManager.GetObject("400", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
-        ///&lt;xs:schema attributeFormDefault=&quot;unqualified&quot; elementFormDefault=&quot;qualified&quot; 
-        ///	   xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot;&gt;
-        ///	&lt;xs:element name=&quot;wuthering-comments&quot;&gt;
-        ///		&lt;xs:complexType&gt;
-        ///			&lt;xs:sequence&gt;
-        ///				&lt;xs:element name=&quot;author&quot;&gt;
-        ///					&lt;xs:complexType&gt;
-        ///						&lt;xs:attribute name=&quot;name&quot; type=&quot;xs:string&quot; use=&quot;required&quot; /&gt;
-        ///						&lt;xs:attribute name=&quot;initials&quot; type=&quot;xs:string&quot; use=&quot;optional&quot; /&gt;
-        ///						&lt;xs:attribute name=&quot;email&quot; type=&quot;xs:string&quot; use=&quot;optional&quot; /&gt;
-        /// [rest of string was truncated]&quot;;.
+        ///   Looks up a localized string similar to Source file comment macros.
         /// </summary>
-        internal static string WutheringCommentsXsd {
+        internal static string PackageDescription {
             get {
-                return ResourceManager.GetString("WutheringCommentsXsd", resourceCulture);
+                return ResourceManager.GetString("PackageDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SourceComments.
+        /// </summary>
+        internal static string PackageName {
+            get {
+                return ResourceManager.GetString("PackageName", resourceCulture);
             }
         }
     }

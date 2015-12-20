@@ -124,11 +124,18 @@
   <ItemGroup>
     <Compile Include="Sources\Components\Author.cs" />
     <Compile Include="Sources\Components\Categories.cs" />
+    <Compile Include="Sources\Components\Variables.cs" />
     <Compile Include="Sources\Components\Comments.cs" />
     <Compile Include="Sources\Components\CommentsDocument.cs" />
     <Compile Include="Sources\Components\Groups.cs" />
     <Compile Include="Sources\Components\Templates.cs" />
     <Compile Include="Sources\Components\Wrappers.cs" />
+    <Compile Include="Sources\Forms\WutheringCommentsErrorList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sources\Forms\WutheringCommentsErrorList.Designer.cs">
+      <DependentUpon>WutheringCommentsErrorList.cs</DependentUpon>
+    </Compile>
     <Compile Include="Sources\Forms\WutheringCommentsEditor.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -136,27 +143,37 @@
       <DependentUpon>WutheringCommentsEditor.cs</DependentUpon>
     </Compile>
     <Compile Include="Sources\Symbols.cs" />
-    <Compile Include="Resources.Designer.cs">
+    <Compile Include="CommentResources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Resources.resx</DependentUpon>
+      <DependentUpon>CommentResources.resx</DependentUpon>
     </Compile>
     <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="Sources\WutheringCommentsPackage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="VSPackage.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>VSPackage.resx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Resources.resx">
+    <EmbeddedResource Include="CommentResources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <LastGenOutput>CommentResources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Sources\Forms\WutheringCommentsEditor.resx">
       <DependentUpon>WutheringCommentsEditor.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Sources\Forms\WutheringCommentsErrorList.resx">
+      <DependentUpon>WutheringCommentsErrorList.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="VSPackage.resx">
       <MergeWithCTO>true</MergeWithCTO>
       <ManifestResourceName>VSPackage</ManifestResourceName>
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>VSPackage.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
@@ -180,6 +197,9 @@
     <None Include="Resources\Images.png" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="SciLexer.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <None Include="Data\Comments.ori.xml">
       <SubType>Designer</SubType>
     </None>
@@ -187,6 +207,10 @@
     <Content Include="Resources\Package.ico" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\..\Contribs\Scintilla.NET\src\ScintillaNET\ScintillaNET.csproj">
+      <Project>{22ae2386-60f1-476e-9303-61cdb0aac4cf}</Project>
+      <Name>ScintillaNET</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\..\Libraries\Thrak\Thrak.csproj">
       <Project>{ef0f1d8c-6a59-4cd4-99eb-22ba3b7bb150}</Project>
       <Name>Thrak</Name>

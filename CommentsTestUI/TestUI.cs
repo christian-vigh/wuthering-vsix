@@ -37,9 +37,17 @@ namespace CommentsTestUI
    {
 	public partial class TestUI : Form
 	   {
+		private	WutheringCommentsErrorList	ErrorListForm		=  null ;
+
+
 		public TestUI ( )
 		   {
 			InitializeComponent ( ) ;
+
+			var f 	=  new Func<string> ( ( ) => { return ( "coucou" ) ; } ) ;
+			object o	=  "zz" ;
+
+			o = f ;
 		   }
 
 
@@ -86,31 +94,10 @@ namespace CommentsTestUI
 		/// </summary>
 		private void  DisplayParseErrors ( XmlCommentsDocument  parser )
 		   {
-			CheckOutputButton. Enabled	=  false ;
-				
-			DisplayErrorsForm	form	=  new DisplayErrorsForm ( ) ;
+			if  ( ErrorListForm  ==  null )
+				ErrorListForm	=  new WutheringCommentsErrorList ( ) ;
 
-			foreach  ( XmlParseError e  in  parser. ValidationMessages )
-			   {
-				form. ErrorList. Items. Add
-				  (
-					new ListViewItem 
-					   (
-						new string [] 
-						   {
-							 e. Step. ToString ( ),
-							 e. Severity. ToString ( ),
-							 e. Line. ToString ( ),
-							 e. Column. ToString ( ),
-							 ( String. IsNullOrEmpty ( e. SourceUri ) ) ?
-								e. Source : e. SourceUri,
-							 e. Message
-						    }
-					    )
-				   ) ;
-			    }
-
-			form. ShowDialog ( ) ;
+			ErrorListForm. ShowDialog ( parser. ValidationMessages ) ;
 		    }
 
 

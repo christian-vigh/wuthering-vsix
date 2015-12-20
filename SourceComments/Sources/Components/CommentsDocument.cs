@@ -43,14 +43,17 @@ namespace Wuthering. WutheringComments
 		public Templates	Templates		{ get ; private set ; } 
 		public Groups		Groups			{ get ; private set ; } 
 
+		// Variables used for comment expansion
+		public Variables	Variables		{ get ; private set ; }
+
 		/// <summary>
 		/// Static constructor. Retrieves the contents of the xml definitions and xsd files embedded in
 		/// the resources.
 		/// </summary>
 		static  XmlCommentsDocument ( )
 		   {
-			StockDefinitions	=  WutheringCommentsPackage. Resources. WutheringCommentsXml ;
-			StockSchema		=  WutheringCommentsPackage. Resources. WutheringCommentsXsd ;
+			StockDefinitions	=  WutheringCommentsPackage. CommentResources. WutheringCommentsXml ;
+			StockSchema		=  WutheringCommentsPackage. CommentResources. WutheringCommentsXsd ;
 		    }
 
 

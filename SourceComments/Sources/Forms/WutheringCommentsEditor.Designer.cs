@@ -35,13 +35,15 @@
 			this.CloseButton = new System.Windows.Forms.Button();
 			this.SaveButton = new System.Windows.Forms.Button();
 			this.ContentPanel = new System.Windows.Forms.Panel();
+			this.ConfigurationEditor = new ScintillaNET.Scintilla();
 			this.StatusBar = new System.Windows.Forms.StatusStrip();
 			this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
 			this.SBPosition = new System.Windows.Forms.ToolStripStatusLabel();
 			this.SBSize = new System.Windows.Forms.ToolStripStatusLabel();
 			this.SBLineCount = new System.Windows.Forms.ToolStripStatusLabel();
-			this.TextContents = new System.Windows.Forms.RichTextBox();
+			this.SBModified = new System.Windows.Forms.ToolStripStatusLabel();
 			this.Tooltip = new System.Windows.Forms.ToolTip(this.components);
+			this.Images = new System.Windows.Forms.ImageList(this.components);
 			this.TopButtonPanel.SuspendLayout();
 			this.ContentPanel.SuspendLayout();
 			this.StatusBar.SuspendLayout();
@@ -60,45 +62,66 @@
 			// 
 			// ValidateButton
 			// 
-			this.ValidateButton.Location = new System.Drawing.Point(797, 6);
+			this.ValidateButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ValidateButton.BackgroundImage")));
+			this.ValidateButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+			this.ValidateButton.Dock = System.Windows.Forms.DockStyle.Left;
+			this.ValidateButton.ImageKey = "validate.png";
+			this.ValidateButton.Location = new System.Drawing.Point(0, 0);
 			this.ValidateButton.Name = "ValidateButton";
-			this.ValidateButton.Size = new System.Drawing.Size(75, 23);
+			this.ValidateButton.Size = new System.Drawing.Size(34, 34);
 			this.ValidateButton.TabIndex = 1;
-			this.ValidateButton.Text = "&Validate";
 			this.Tooltip.SetToolTip(this.ValidateButton, "Validates the current comment definitions");
 			this.ValidateButton.UseVisualStyleBackColor = true;
+			this.ValidateButton.Click += new System.EventHandler(this.ValidateButton_Click);
 			// 
 			// CloseButton
 			// 
-			this.CloseButton.Location = new System.Drawing.Point(945, 6);
+			this.CloseButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("CloseButton.BackgroundImage")));
+			this.CloseButton.Dock = System.Windows.Forms.DockStyle.Right;
+			this.CloseButton.Location = new System.Drawing.Point(992, 0);
 			this.CloseButton.Name = "CloseButton";
-			this.CloseButton.Size = new System.Drawing.Size(75, 23);
+			this.CloseButton.Size = new System.Drawing.Size(34, 34);
 			this.CloseButton.TabIndex = 3;
-			this.CloseButton.Text = "&Close";
-			this.Tooltip.SetToolTip(this.CloseButton, "Closes the editor\r\nA confirmation will be displayed if the contents have been cha" +
-        "nged but not saved.");
+			this.Tooltip.SetToolTip(this.CloseButton, "Closes the editor\r\n");
 			this.CloseButton.UseVisualStyleBackColor = true;
+			this.CloseButton.Click += new System.EventHandler(this.CloseButton_Click);
 			// 
 			// SaveButton
 			// 
-			this.SaveButton.Location = new System.Drawing.Point(871, 6);
+			this.SaveButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("SaveButton.BackgroundImage")));
+			this.SaveButton.Location = new System.Drawing.Point(33, 0);
 			this.SaveButton.Name = "SaveButton";
-			this.SaveButton.Size = new System.Drawing.Size(75, 23);
+			this.SaveButton.Size = new System.Drawing.Size(34, 34);
 			this.SaveButton.TabIndex = 2;
-			this.SaveButton.Text = "&Save";
 			this.Tooltip.SetToolTip(this.SaveButton, "Saves current content");
 			this.SaveButton.UseVisualStyleBackColor = true;
 			this.SaveButton.Click += new System.EventHandler(this.SaveButton_Click);
 			// 
 			// ContentPanel
 			// 
+			this.ContentPanel.Controls.Add(this.ConfigurationEditor);
 			this.ContentPanel.Controls.Add(this.StatusBar);
-			this.ContentPanel.Controls.Add(this.TextContents);
 			this.ContentPanel.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.ContentPanel.Location = new System.Drawing.Point(0, 34);
 			this.ContentPanel.Name = "ContentPanel";
 			this.ContentPanel.Size = new System.Drawing.Size(1026, 399);
 			this.ContentPanel.TabIndex = 2;
+			// 
+			// ConfigurationEditor
+			// 
+			this.ConfigurationEditor.CaretLineBackColor = System.Drawing.Color.MistyRose;
+			this.ConfigurationEditor.CaretLineVisible = true;
+			this.ConfigurationEditor.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.ConfigurationEditor.Lexer = ScintillaNET.Lexer.Xml;
+			this.ConfigurationEditor.Location = new System.Drawing.Point(0, 0);
+			this.ConfigurationEditor.Name = "ConfigurationEditor";
+			this.ConfigurationEditor.Size = new System.Drawing.Size(1026, 375);
+			this.ConfigurationEditor.TabIndex = 3;
+			this.ConfigurationEditor.TabWidth = 8;
+			this.ConfigurationEditor.UseTabs = false;
+			this.ConfigurationEditor.Delete += new System.EventHandler<ScintillaNET.ModificationEventArgs>(this.ConfigurationEditor_Delete);
+			this.ConfigurationEditor.Insert += new System.EventHandler<ScintillaNET.ModificationEventArgs>(this.ConfigurationEditor_Insert);
+			this.ConfigurationEditor.UpdateUI += new System.EventHandler<ScintillaNET.UpdateUIEventArgs>(this.ConfigurationEditor_UpdateUI);
 			// 
 			// StatusBar
 			// 
@@ -106,7 +129,8 @@
             this.toolStripStatusLabel1,
             this.SBPosition,
             this.SBSize,
-            this.SBLineCount});
+            this.SBLineCount,
+            this.SBModified});
 			this.StatusBar.Location = new System.Drawing.Point(0, 375);
 			this.StatusBar.Name = "StatusBar";
 			this.StatusBar.Size = new System.Drawing.Size(1026, 24);
@@ -115,7 +139,7 @@
 			// toolStripStatusLabel1
 			// 
 			this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-			this.toolStripStatusLabel1.Size = new System.Drawing.Size(771, 19);
+			this.toolStripStatusLabel1.Size = new System.Drawing.Size(755, 19);
 			this.toolStripStatusLabel1.Spring = true;
 			// 
 			// SBPosition
@@ -142,17 +166,21 @@
 			this.SBLineCount.Size = new System.Drawing.Size(80, 19);
 			this.SBLineCount.Text = "line#";
 			// 
-			// TextContents
+			// SBModified
 			// 
-			this.TextContents.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.TextContents.Font = new System.Drawing.Font("Lucida Console", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.TextContents.Location = new System.Drawing.Point(0, 0);
-			this.TextContents.Name = "TextContents";
-			this.TextContents.Size = new System.Drawing.Size(1026, 399);
-			this.TextContents.TabIndex = 0;
-			this.TextContents.Text = "";
-			this.TextContents.WordWrap = false;
-			this.TextContents.SelectionChanged += new System.EventHandler(this.TextContents_SelectionChanged);
+			this.SBModified.AutoSize = false;
+			this.SBModified.BorderSides = System.Windows.Forms.ToolStripStatusLabelBorderSides.Right;
+			this.SBModified.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+			this.SBModified.Name = "SBModified";
+			this.SBModified.Size = new System.Drawing.Size(16, 19);
+			// 
+			// Images
+			// 
+			this.Images.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("Images.ImageStream")));
+			this.Images.TransparentColor = System.Drawing.Color.Transparent;
+			this.Images.Images.SetKeyName(0, "close.png");
+			this.Images.Images.SetKeyName(1, "save.png");
+			this.Images.Images.SetKeyName(2, "validate.png");
 			// 
 			// WutheringCommentsEditor
 			// 
@@ -182,7 +210,6 @@
 		private System. Windows. Forms. Panel ContentPanel;
 		private System. Windows. Forms. Button CloseButton;
 		private System. Windows. Forms. Button SaveButton;
-		private System. Windows. Forms. RichTextBox TextContents;
 		private System. Windows. Forms. Button ValidateButton;
 		private System. Windows. Forms. ToolTip Tooltip;
 		private System. Windows. Forms. StatusStrip StatusBar;
@@ -190,5 +217,8 @@
 		private System. Windows. Forms. ToolStripStatusLabel toolStripStatusLabel1;
 		private System. Windows. Forms. ToolStripStatusLabel SBPosition;
 		private System. Windows. Forms. ToolStripStatusLabel SBSize;
+		private ScintillaNET. Scintilla ConfigurationEditor;
+		private System. Windows. Forms. ToolStripStatusLabel SBModified;
+		private System. Windows. Forms. ImageList Images;
 	}
 }
