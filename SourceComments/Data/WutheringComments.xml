@@ -5,8 +5,8 @@
 	<categories>
 		<category name="block"		description="Thick block comment"/>
 		<category name="class"		description="Comment inserted before a class definition"/>
-		<category name="code"		description="Multiline comment inserted before a code block"/>
-		<category name="file"		description="Comment inserted at the top of a source file"/>
+		<category name="standard"	description="Multiline comment inserted before a code block"/>
+		<category name="header"		description="Comment inserted at the top of a source file"/>
 		<category name="function"	description="Comment inserted before a function"/>
 		<category name="method"		description="Comment inserted before a method"/>
 	</categories>
@@ -19,7 +19,7 @@
 				 **************************************************************************************************************
 				 ******                                                                                                  ******
 				 ******                                                                                                  ******
-				 ******                                            BLOCK                                                 ******
+				 ****** {? prompt="comment" width="96" align="center" ******
 				 ******                                                                                                  ******
 				 ******                                                                                                  ******
 				 **************************************************************************************************************
@@ -30,22 +30,22 @@
 				/*==============================================================================================================
 
 				    class class -
-					Description
+					{^}Description{$}
 
 				  ==============================================================================================================*/
 			</comment>
-			<comment category="code">
+			<comment category="standard">
 				/*==============================================================================================================
 
-
+					{!}
 
 				  ==============================================================================================================*/
-			</comment>
+			</comment>                                     
 			<comment category="function">
 				/*--------------------------------------------------------------------------------------------------------------
 
 				    NAME
-					method - summary
+					{^}function - summary{$}
 
 				    PROTOTYPE
 					prototype
@@ -65,20 +65,44 @@
 
 				 *-------------------------------------------------------------------------------------------------------------*/
 			</comment>
-			<comment category="file">
+			<comment category="method">
+				/*--------------------------------------------------------------------------------------------------------------
+
+				    NAME
+					{^}method - summary{$}
+
+				    PROTOTYPE
+					prototype
+
+				    DESCRIPTION
+					description
+
+				    PARAMETERS
+					$param (type) -
+						description
+
+				    RETURN VALUE
+					description
+
+				    NOTES
+					description
+
+				*-------------------------------------------------------------------------------------------------------------*/
+			</comment>
+			<comment category="header">
 				/**************************************************************************************************************
 
 				    NAME
-					${file}
+					{$file}
 
 				    DESCRIPTION
-					description.
+					{^}description.{$}
 
 				    AUTHOR
-					${author}, ${month}/${year}.
+					{$author}, {$month}/{$year}.
 
 				    HISTORY
-					[Version : 1.0]		[Date : ${date}]     [Author : ${initials}]
+					[Version : 1.0]		[Date : {$date}]     [Author : {$initials}]
 						Initial version.
 
 				**************************************************************************************************************/
@@ -92,14 +116,8 @@
 			<comment category="class"	template="c-like"/>
 			<comment category="method"	template="c-like" template-category="function"/>
 			<comment category="function"	template="c-like"/>
-			<comment category="file"	template="c-like"/>
-			<comment category="code">
-				/***
-
-
-
-				***/
-			</comment>
+			<comment category="header"	template="c-like"/>
+			<comment category="standard"	template="c-like"/>
 		</group>
 	</groups>
 	

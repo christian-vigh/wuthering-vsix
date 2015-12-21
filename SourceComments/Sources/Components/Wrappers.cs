@@ -33,11 +33,11 @@ namespace Wuthering. WutheringComments
 	/// </summary>
 	public class WrappedNode
 	   {
-		public XmlValidatedDocument	Parent		{ get ; private set ; }
+		public XmlCommentsDocument	Parent		{ get ; private set ; }
 		public XmlNode			Node		{ get ; private set ; }
 
 
-		public WrappedNode ( XmlValidatedDocument  document, XmlNode  node )
+		public WrappedNode ( XmlCommentsDocument  document, XmlNode  node )
 		   {
 			Parent		=  document ;
 			Node		=  node ;
@@ -56,7 +56,7 @@ namespace Wuthering. WutheringComments
 		internal string		NameAttribute	{ get ; set ; }
 
 
-		public  WrappedNamedNode ( XmlValidatedDocument  document, string  name_attrname, XmlNode  node ) : 
+		public  WrappedNamedNode ( XmlCommentsDocument  document, string  name_attrname, XmlNode  node ) : 
 				base ( document, node ) 
 		   { NameAttribute	=  name_attrname ; }
 
@@ -75,12 +75,12 @@ namespace Wuthering. WutheringComments
 	public class WrappedNodeList<T>		:  IEnumerable<T>
 			where T : WrappedNamedNode
 	   {
-		public XmlValidatedDocument		Parent		{ get ; private set ; }
+		public XmlCommentsDocument		Parent		{ get ; private set ; }
 		public XmlNode				Node		{ get ; private set ; }
 		protected List<T>			NodeList	=  new List<T> ( ) ;
 
 
-		public WrappedNodeList ( XmlValidatedDocument  document = null, XmlNode  node = null )
+		public WrappedNodeList ( XmlCommentsDocument  document = null, XmlNode  node = null )
 		   {
 			Parent		=  document ;
 			Node		=  node ;
@@ -206,6 +206,7 @@ namespace Wuthering. WutheringComments
 			return ( null ) ;
 		    }
 
+
 		// Enumerators
 		public IEnumerator<T>  GetEnumerator ( )
 		   { return ( NodeList. GetEnumerator ( ) ) ; }
@@ -229,7 +230,7 @@ namespace Wuthering. WutheringComments
 		/// </summary>
 		/// <param name="document">Base xml document.</param>
 		/// <param name="base_node">Node related to the &lt;template&gt; node.</param>
-		public WrappedGroupList ( XmlValidatedDocument	document, 
+		public WrappedGroupList ( XmlCommentsDocument	document, 
 					  XmlNode		base_node,  
 					  string		tag,
 					  string		name_attr ) :  base ( document, base_node )
@@ -266,7 +267,7 @@ namespace Wuthering. WutheringComments
 		/// <summary>
 		/// Creates an object of type WrappedGroupItem (which can be either Template or Group).
 		/// </summary>
-		protected abstract T  CreateObject ( XmlValidatedDocument  document, XmlNode  node ) ;
+		protected abstract T  CreateObject ( XmlCommentsDocument  document, XmlNode  node ) ;
 
 
 		/// <summary>
@@ -307,7 +308,7 @@ namespace Wuthering. WutheringComments
 		/// </summary>
 		/// <param name="document">Base xml document.</param>
 		/// <param name="base_node">Node related to the &lt;categories&gt; node.</param>
-		public WrappedGroupItem ( XmlValidatedDocument  document, XmlNode  base_node, string  tag, string  name_attr ) : 
+		public WrappedGroupItem ( XmlCommentsDocument  document, XmlNode  base_node, string  tag, string  name_attr ) : 
 				base ( document, name_attr, base_node )
 		   { 
 			Comments	=  new WrappedNodeList<T> ( document, base_node ) ;
@@ -339,7 +340,7 @@ namespace Wuthering. WutheringComments
 		/// <summary>
 		/// Creates an object of type WrappedGroupItem (which can be either Template or Group).
 		/// </summary>
-		protected abstract T  CreateObject ( XmlValidatedDocument  document, XmlNode  node ) ;
+		protected abstract T  CreateObject ( XmlCommentsDocument  document, XmlNode  node ) ;
 
 
 		/// <summary>

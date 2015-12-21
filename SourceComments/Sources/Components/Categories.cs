@@ -38,7 +38,7 @@ namespace Wuthering. WutheringComments
 		/// </summary>
 		/// <param name="document">Base xml document.</param>
 		/// <param name="base_node">Node related to the &lt;categories&gt; node.</param>
-		public Categories ( XmlValidatedDocument  document, XmlNode  base_node ) : base ( document, base_node )
+		public Categories ( XmlCommentsDocument  document, XmlNode  base_node ) : base ( document, base_node )
 		   { 
 			foreach  ( XmlNode node  in  base_node. ChildNodes )
 			   {
@@ -95,7 +95,7 @@ namespace Wuthering. WutheringComments
 	/// </summary>
 	public class  Category		:  WrappedNamedNode
 	   {
-		public Category ( XmlValidatedDocument  document, XmlNode  node ) : base ( document, "name", node )
+		public Category ( XmlCommentsDocument  document, XmlNode  node ) : base ( document, "name", node )
 		   { }
 	    }
     }

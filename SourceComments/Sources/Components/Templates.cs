@@ -33,11 +33,11 @@ namespace Wuthering. WutheringComments
 	/// </summary>
 	public class	Templates	:  WrappedGroupList<Template,TemplateComment>
 	   {
-		public  Templates ( XmlValidatedDocument  document, XmlNode  base_node ) :
+		public  Templates ( XmlCommentsDocument  document, XmlNode  base_node ) :
 				base ( document, base_node, "template", "name" )
 		   { }
 
-		protected override  Template  CreateObject ( XmlValidatedDocument  document, XmlNode  base_node )
+		protected override  Template  CreateObject ( XmlCommentsDocument  document, XmlNode  base_node )
 		   { return ( new Template ( document, base_node ) ) ; }
 	    }
 
@@ -47,12 +47,12 @@ namespace Wuthering. WutheringComments
 	/// </summary>
 	public class	Template	:  WrappedGroupItem<TemplateComment>
 	   {
-		public Template ( XmlValidatedDocument  document, XmlNode  base_node ) :
+		public Template ( XmlCommentsDocument  document, XmlNode  base_node ) :
 				base ( document, base_node, "comment", "name" )
 		   { }
 
 
-		protected override  TemplateComment  CreateObject ( XmlValidatedDocument  document, XmlNode  base_node )
+		protected override  TemplateComment  CreateObject ( XmlCommentsDocument  document, XmlNode  base_node )
 		   { return ( new TemplateComment ( document, base_node ) ) ; }
 	    }
 
@@ -62,7 +62,7 @@ namespace Wuthering. WutheringComments
 	/// </summary>
 	public class  TemplateComment	:  Comment
 	   {
-		public	TemplateComment ( XmlValidatedDocument  document, XmlNode  node ) : base ( document, node )
+		public	TemplateComment ( XmlCommentsDocument  document, XmlNode  node ) : base ( document, node )
 		   { }
 	    }
 

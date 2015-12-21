@@ -17,9 +17,11 @@
 using	System ;
 using	System. Globalization ;
 using	System. Runtime. InteropServices ;
+using   System. ComponentModel ;
 using	System. ComponentModel. Design ;
 using   System. Collections ;
 using   System. Collections. Generic ;
+using   System. Windows. Forms ;
 using   EnvDTE ;
 using	Microsoft. Win32 ;
 using	Microsoft. VisualStudio ;
@@ -37,6 +39,7 @@ namespace Wuthering. WutheringCommentsPackage
 	[PackageRegistration ( UseManagedResourcesOnly = true ) ]
 	[InstalledProductRegistration ( "PackageName", "PackageDescription", "1.0", IconResourceID = 400 ) ]
 	[ProvideMenuResource ( "Menus.ctmenu", 1 ) ]
+	[ProvideOptionPage ( typeof ( WutheringCommentsOptionsPage ), "Wuthering Tools", "Comments", 0, 0, true)]
 	[Guid ( Symbols. Guids. PackageGuid ) ]
 	public sealed class WutheringCommentsPackage	: Utilities. VsPackage
 	   {
@@ -51,7 +54,7 @@ namespace Wuthering. WutheringCommentsPackage
 		/// <item>Registers the callback for handling the Insertxxx menu items</item>
 		/// </list>
 		/// </summary>
-		protected override void Initialize()
+		protected override void Initialize ( )
 		   {
 			base. Initialize ( ) ;
 

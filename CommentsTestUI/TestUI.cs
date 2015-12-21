@@ -43,11 +43,6 @@ namespace CommentsTestUI
 		public TestUI ( )
 		   {
 			InitializeComponent ( ) ;
-
-			var f 	=  new Func<string> ( ( ) => { return ( "coucou" ) ; } ) ;
-			object o	=  "zz" ;
-
-			o = f ;
 		   }
 
 
@@ -71,6 +66,10 @@ namespace CommentsTestUI
 
 		private void EditButton_Click ( object sender, EventArgs e )
 		   { EditXml ( InputXml, OutputXml ) ; }
+
+		private void Comments_Click ( object sender, EventArgs e )
+		   { TestComments ( InputXml.Text ) ; }
+
 
 		/// <summary>
 		/// Generate xml output from the specified xml data to the OutputXml textbox.
@@ -113,6 +112,15 @@ namespace CommentsTestUI
 			else
 				DisplayParseErrors ( parser ) ;
 
+		    }
+
+
+		private void  TestComments ( string  text )
+		   {
+			XmlCommentsDocument		parser	=  new XmlCommentsDocument ( text ) ;
+			DisplayCommentForm		form	=  new DisplayCommentForm ( parser ) ;	
+			
+			form. ShowDialog ( ) ;		
 		    }
 
 

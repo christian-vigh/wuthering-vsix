@@ -33,7 +33,7 @@ namespace Wuthering. WutheringComments
 	/// </summary>
 	public class Author	:  WrappedNode
 	   {
-		public  Author ( XmlValidatedDocument  document, XmlNode  node )  : base ( document, node ) 
+		public  Author ( XmlCommentsDocument  document, XmlNode  node )  : base ( document, node ) 
 		   { }
 
 

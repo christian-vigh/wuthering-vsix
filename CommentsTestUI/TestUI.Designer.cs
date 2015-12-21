@@ -32,6 +32,7 @@
 			this.panel2 = new System.Windows.Forms.Panel();
 			this.InputXml = new System.Windows.Forms.TextBox();
 			this.panel1 = new System.Windows.Forms.Panel();
+			this.EditButton = new System.Windows.Forms.Button();
 			this.CheckInputButton = new System.Windows.Forms.Button();
 			this.GenerateButton = new System.Windows.Forms.Button();
 			this.label1 = new System.Windows.Forms.Label();
@@ -40,7 +41,7 @@
 			this.panel3 = new System.Windows.Forms.Panel();
 			this.CheckOutputButton = new System.Windows.Forms.Button();
 			this.label2 = new System.Windows.Forms.Label();
-			this.EditButton = new System.Windows.Forms.Button();
+			this.Comments = new System.Windows.Forms.Button();
 			((System.ComponentModel.ISupportInitialize)(this.Splitter)).BeginInit();
 			this.Splitter.Panel1.SuspendLayout();
 			this.Splitter.Panel2.SuspendLayout();
@@ -68,8 +69,8 @@
 			this.Splitter.Panel2.AutoScroll = true;
 			this.Splitter.Panel2.Controls.Add(this.panel4);
 			this.Splitter.Panel2.Controls.Add(this.panel3);
-			this.Splitter.Size = new System.Drawing.Size(765, 434);
-			this.Splitter.SplitterDistance = 405;
+			this.Splitter.Size = new System.Drawing.Size(906, 434);
+			this.Splitter.SplitterDistance = 479;
 			this.Splitter.TabIndex = 2;
 			// 
 			// panel2
@@ -78,7 +79,7 @@
 			this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.panel2.Location = new System.Drawing.Point(0, 24);
 			this.panel2.Name = "panel2";
-			this.panel2.Size = new System.Drawing.Size(405, 410);
+			this.panel2.Size = new System.Drawing.Size(479, 410);
 			this.panel2.TabIndex = 4;
 			// 
 			// InputXml
@@ -89,13 +90,14 @@
 			this.InputXml.Multiline = true;
 			this.InputXml.Name = "InputXml";
 			this.InputXml.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-			this.InputXml.Size = new System.Drawing.Size(405, 410);
+			this.InputXml.Size = new System.Drawing.Size(479, 410);
 			this.InputXml.TabIndex = 3;
 			this.InputXml.Text = "sample input text";
 			this.InputXml.WordWrap = false;
 			// 
 			// panel1
 			// 
+			this.panel1.Controls.Add(this.Comments);
 			this.panel1.Controls.Add(this.EditButton);
 			this.panel1.Controls.Add(this.CheckInputButton);
 			this.panel1.Controls.Add(this.GenerateButton);
@@ -103,13 +105,24 @@
 			this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
 			this.panel1.Location = new System.Drawing.Point(0, 0);
 			this.panel1.Name = "panel1";
-			this.panel1.Size = new System.Drawing.Size(405, 24);
+			this.panel1.Size = new System.Drawing.Size(479, 24);
 			this.panel1.TabIndex = 3;
+			// 
+			// EditButton
+			// 
+			this.EditButton.Dock = System.Windows.Forms.DockStyle.Right;
+			this.EditButton.Location = new System.Drawing.Point(254, 0);
+			this.EditButton.Name = "EditButton";
+			this.EditButton.Size = new System.Drawing.Size(75, 24);
+			this.EditButton.TabIndex = 3;
+			this.EditButton.Text = "&Edit";
+			this.EditButton.UseVisualStyleBackColor = true;
+			this.EditButton.Click += new System.EventHandler(this.EditButton_Click);
 			// 
 			// CheckInputButton
 			// 
 			this.CheckInputButton.Dock = System.Windows.Forms.DockStyle.Right;
-			this.CheckInputButton.Location = new System.Drawing.Point(255, 0);
+			this.CheckInputButton.Location = new System.Drawing.Point(329, 0);
 			this.CheckInputButton.Name = "CheckInputButton";
 			this.CheckInputButton.Size = new System.Drawing.Size(75, 24);
 			this.CheckInputButton.TabIndex = 2;
@@ -120,7 +133,7 @@
 			// GenerateButton
 			// 
 			this.GenerateButton.Dock = System.Windows.Forms.DockStyle.Right;
-			this.GenerateButton.Location = new System.Drawing.Point(330, 0);
+			this.GenerateButton.Location = new System.Drawing.Point(404, 0);
 			this.GenerateButton.Name = "GenerateButton";
 			this.GenerateButton.Size = new System.Drawing.Size(75, 24);
 			this.GenerateButton.TabIndex = 1;
@@ -143,7 +156,7 @@
 			this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.panel4.Location = new System.Drawing.Point(0, 24);
 			this.panel4.Name = "panel4";
-			this.panel4.Size = new System.Drawing.Size(356, 410);
+			this.panel4.Size = new System.Drawing.Size(423, 410);
 			this.panel4.TabIndex = 5;
 			// 
 			// OutputXml
@@ -155,7 +168,7 @@
 			this.OutputXml.Name = "OutputXml";
 			this.OutputXml.ReadOnly = true;
 			this.OutputXml.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-			this.OutputXml.Size = new System.Drawing.Size(356, 410);
+			this.OutputXml.Size = new System.Drawing.Size(423, 410);
 			this.OutputXml.TabIndex = 4;
 			this.OutputXml.Text = "sample output text";
 			this.OutputXml.WordWrap = false;
@@ -167,13 +180,13 @@
 			this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
 			this.panel3.Location = new System.Drawing.Point(0, 0);
 			this.panel3.Name = "panel3";
-			this.panel3.Size = new System.Drawing.Size(356, 24);
+			this.panel3.Size = new System.Drawing.Size(423, 24);
 			this.panel3.TabIndex = 4;
 			// 
 			// CheckOutputButton
 			// 
 			this.CheckOutputButton.Dock = System.Windows.Forms.DockStyle.Right;
-			this.CheckOutputButton.Location = new System.Drawing.Point(281, 0);
+			this.CheckOutputButton.Location = new System.Drawing.Point(348, 0);
 			this.CheckOutputButton.Name = "CheckOutputButton";
 			this.CheckOutputButton.Size = new System.Drawing.Size(75, 24);
 			this.CheckOutputButton.TabIndex = 1;
@@ -190,22 +203,22 @@
 			this.label2.TabIndex = 0;
 			this.label2.Text = "Output Xml :";
 			// 
-			// EditButton
+			// Comments
 			// 
-			this.EditButton.Dock = System.Windows.Forms.DockStyle.Right;
-			this.EditButton.Location = new System.Drawing.Point(180, 0);
-			this.EditButton.Name = "EditButton";
-			this.EditButton.Size = new System.Drawing.Size(75, 24);
-			this.EditButton.TabIndex = 3;
-			this.EditButton.Text = "&Edit";
-			this.EditButton.UseVisualStyleBackColor = true;
-			this.EditButton.Click += new System.EventHandler(this.EditButton_Click);
+			this.Comments.Dock = System.Windows.Forms.DockStyle.Right;
+			this.Comments.Location = new System.Drawing.Point(179, 0);
+			this.Comments.Name = "Comments";
+			this.Comments.Size = new System.Drawing.Size(75, 24);
+			this.Comments.TabIndex = 4;
+			this.Comments.Text = "C&omments";
+			this.Comments.UseVisualStyleBackColor = true;
+			this.Comments.Click += new System.EventHandler(this.Comments_Click);
 			// 
 			// TestUI
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(765, 434);
+			this.ClientSize = new System.Drawing.Size(906, 434);
 			this.Controls.Add(this.Splitter);
 			this.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.Name = "TestUI";
@@ -243,6 +256,7 @@
 		private System. Windows. Forms. Button CheckOutputButton;
 		private System. Windows. Forms. Button CheckInputButton;
 		private System. Windows. Forms. Button EditButton;
+		private System. Windows. Forms. Button Comments;
 
 	}
 }

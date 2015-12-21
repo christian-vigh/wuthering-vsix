@@ -32,7 +32,7 @@ namespace Wuthering. WutheringComments
 	/// <summary>
 	/// Variable store.
 	/// </summary>
-	public class Variables
+	public class CommentVariables		:  VariableStore<string>
 	   {
 		// List of variables and values
 		private	Dictionary<string, object>	List		=  new Dictionary<string, object> ( StringComparer. CurrentCultureIgnoreCase ) ;
@@ -43,88 +43,106 @@ namespace Wuthering. WutheringComments
 		/// <summary>
 		/// Creates a variable store and defines default variables.
 		/// </summary>
-		public  Variables ( XmlCommentsDocument  parent )
+		public  CommentVariables ( XmlCommentsDocument  parent ) : base ( )
 		   { 
 			Parent		=  parent ;
-			AddDefaultVariables ( ) ;
+			DefineDefaultVariables ( ) ;
 		    }
 
 
-		# region Default variable definitions
-		private void AddDefaultVariables ( )
+		/// <summary>
+		/// Gets the value of a variable. This version does not expand variables referenced in variables.
+		/// (in fact the current version only returns the variable value).
+		/// </summary>
+		/// <param name="variable_name">Variable to be expanded</param>
+		/// <param name="options">Reserved for future use.</param>
+		/// <returns>The value of the specified variable.</returns>
+		public string  Expand ( string  variable_name, string  options = null )
+		   {
+			StringBuilder	result		=  new StringBuilder ( ) ;
+
+			if  ( IsDefined ( variable_name ) )
+			   {
+				result. Append ( this [ variable_name ] ) ;
+			    }	
+
+			return ( result. ToString ( ) ) ;
+		    }
+
+
+		/// <summary>
+		/// Define default variables.
+		/// </summary>
+		private void DefineDefaultVariables ( )
 		   {
 			// Add author-related variables
-			AddVariable 
+			Define 
 			   (
 				new string [] { "author", "author-name" },
 				new Func<string> ( ( ) => { return ( Parent. Author. Name ) ; } ) 
 			    ) ;
-			AddVariable 
+			Define 
 			   (
 				new string [] { "initials", "author-initials" },
 				new Func<string> ( ( ) => { return ( Parent. Author. Initials ) ; } ) 
 			    ) ;
-			AddVariable 
+			Define 
 			   (
 				new string [] { "email", "author-email" },
 				new Func<string> ( ( ) => { return ( Parent. Author. Email ) ; } ) 
 			    ) ;
-			AddVariable 
+			Define 
 			   (
 				new string [] { "website", "author-website" },
 				new Func<string> ( ( ) => { return ( Parent. Author. WebSite ) ; } ) 
 			    ) ;
 
 			// Date/time variables
-			AddVariable 
+			Define 
 			   (
 				"datetime",
 				new Func<string> ( ( ) => { return ( DateTime. Now. ToString ( "yyyy-MM-dd HH:mm" ) ) ; } ) 
 			    ) ;
-			AddVariable 
+			Define 
 			   (
 				"date",
 				new Func<string> ( ( ) => { return ( DateTime. Now. ToString ( "yyyy-MM-dd" ) ) ; } ) 
 			    ) ;
-			AddVariable 
+			Define 
 			   (
 				"year",
 				new Func<string> ( ( ) => { return ( DateTime. Now. ToString ( "yyyy" ) ) ; } ) 
 			    ) ;
-			AddVariable 
+			Define 
 			   (
 				"month",
 				new Func<string> ( ( ) => { return ( DateTime. Now. ToString ( "MM" ) ) ; } ) 
 			    ) ;
-			AddVariable 
+			Define 
 			   (
 				"day",
 				new Func<string> ( ( ) => { return ( DateTime. Now. ToString ( "dd" ) ) ; } ) 
 			    ) ;
-			AddVariable 
+			Define 
 			   (
 				"time",
 				new Func<string> ( ( ) => { return ( DateTime. Now. ToString ( "HH:mm:ss" ) ) ; } ) 
 			    ) ;
-			AddVariable 
+			Define 
 			   (
 				"hour",
 				new Func<string> ( ( ) => { return ( DateTime. Now. ToString ( "HH" ) ) ; } ) 
 			    ) ;
-			AddVariable 
+			Define 
 			   (
 				"minute",
 				new Func<string> ( ( ) => { return ( DateTime. Now. ToString ( "mm" ) ) ; } ) 
 			    ) ;
-			AddVariable 
+			Define 
 			   (
 				"second",
 				new Func<string> ( ( ) => { return ( DateTime. Now. ToString ( "ss" ) ) ; } ) 
 			    ) ;
 		    }
-		# endregion
-
-
-
 	    }
     }

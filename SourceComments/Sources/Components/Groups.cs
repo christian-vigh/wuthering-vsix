@@ -16,6 +16,7 @@
  **************************************************************************************************************/
 using  System ;
 using  System. Collections. Generic ;
+using  System. IO ;
 using  System. Linq ;
 using  System. Text ;
 using  System. Threading. Tasks ;
@@ -33,12 +34,68 @@ namespace Wuthering. WutheringComments
 	/// </summary>
 	public class	Groups	:  WrappedGroupList<Group,GroupComment>
 	   {
-		public  Groups ( XmlValidatedDocument  document, XmlNode  base_node ) :
+		public  Groups ( XmlCommentsDocument  document, XmlNode  base_node ) :
 				base ( document, base_node, "group", "language" )
 		   { }
 
-		protected override  Group  CreateObject ( XmlValidatedDocument  document, XmlNode  base_node )
+		protected override  Group  CreateObject ( XmlCommentsDocument  document, XmlNode  base_node )
 		   { return ( new Group ( document, base_node ) ) ; }
+
+
+		/// <summary>
+		/// Search for a group supporting the specified file extension.
+		/// </summary>
+		/// <param name="extension">File extension, with an optional leading dot.</param>
+		/// <returns>A Group object, or null if no group supports the specified extension.</returns>
+		public Group  FindGroupByExtension ( string  extension )
+		   {
+			if  ( extension. Length  >  0  &&  extension [0]  ==  '.' )
+				extension	=  extension. Substring ( 1 ) ;
+
+			foreach  ( Group  group  in  NodeList )
+			   {
+				foreach  ( string  name  in  group. Extensions )
+				   {
+					if  ( String. Compare ( name, extension )  ==  0 )
+						return ( group ) ;
+				    }
+			    }
+
+			return ( null ) ;
+		    }
+
+
+		/// <summary>
+		/// Retrieves a comment from the specified category, adapted to the specified file.
+		/// </summary>
+		/// <param name="filename">Filename to be used. The file extension is used to determine the comment type.</param>
+		/// <param name="category">Comment category, as defined in the xml comments file.</param>
+		/// <param name="variables">Variable store to be used for expanding variable references in the comment text.</param>
+		/// <returns>
+		/// A string array containing the comment lines. An empty array is returned if the filename has no associated comment
+		/// group or if the specified category does not exist.
+		/// </returns>
+		public string []  GetComment ( string  filename, string  category, CommentVariables  variables )
+		   {
+			string		extension		=  Path. GetExtension ( filename ) ;
+			string []	empty			=  new string [] {} ;
+
+
+			if  ( extension. Length  ==  0 )
+				return ( empty ) ;
+
+			Group		group			=  FindGroupByExtension ( extension ) ;
+			
+			if  ( group  ==  null  ||  ! group. Comments. Exists ( category ) )
+				return ( empty ) ;
+
+			GroupComment	comment			=  group. Comments [ category ] ;
+
+			if  ( comment  ==  null )
+				return ( empty ) ;
+			else				
+				return ( comment. GetLines ( variables ) ) ;
+		    }
 	    }
 
 
@@ -49,12 +106,12 @@ namespace Wuthering. WutheringComments
 	   {
 		private string []		__Extensions	=  null ;
 
-		public Group ( XmlValidatedDocument  document, XmlNode  base_node ) :
+		public Group ( XmlCommentsDocument  document, XmlNode  base_node ) :
 				base ( document, base_node, "comment", "category" )
 		   { }
 
 
-		protected override  GroupComment  CreateObject ( XmlValidatedDocument  document, XmlNode  base_node )
+		protected override  GroupComment  CreateObject ( XmlCommentsDocument  document, XmlNode  base_node )
 		   { return ( new GroupComment ( document, base_node ) ) ; }
 
 
@@ -138,7 +195,7 @@ namespace Wuthering. WutheringComments
 	/// </summary>
 	public class  GroupComment	:  Comment
 	   {
-		public	GroupComment ( XmlValidatedDocument  document, XmlNode  node ) : base ( document, node )
+		public	GroupComment ( XmlCommentsDocument  document, XmlNode  node ) : base ( document, node )
 		   { }
 
 
@@ -165,12 +222,39 @@ namespace Wuthering. WutheringComments
 
 
 		/// <summary>
-		/// Gets/sets 
+		/// Gets/sets the template category for this comment.
 		/// </summary>
 		public string  TemplateCategory
 		   {
-			get { return ( Node. GetAttributeValue ( "template-category" ) ) ; }
+			get 
+			   {
+				string		category	=  Node. GetAttributeValue ( "template-category" ) ;
+
+				if  ( String. IsNullOrEmpty ( category ) )
+					category	=  Node. GetAttributeValue ( "category" ) ;
+
+				return ( category ) ; 
+			    }
+
 			set { Node. SetAttributeValue ( "template-category", value ) ; }
+		    }
+
+
+		/// <summary>
+		/// Returns the comment contents after variable expansion.
+		/// </summary>
+		/// <param name="store">Variable store</param>
+		/// <returns>Array of strings containing the initial comments with all variable references expanded</returns>
+		public override string []  GetLines ( CommentVariables  store )
+		   {
+			if  ( IsTemplateReference )
+			   {
+				Comment		comment		=  Parent. Templates [ Template ]. Comments [ TemplateCategory ] ;
+
+				return ( comment. GetLines ( store ) ) ;
+			    }
+			else
+				return ( base. GetLines ( store ) ) ;
 		    }
 
 

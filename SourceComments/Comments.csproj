@@ -130,6 +130,12 @@
     <Compile Include="Sources\Components\Groups.cs" />
     <Compile Include="Sources\Components\Templates.cs" />
     <Compile Include="Sources\Components\Wrappers.cs" />
+    <Compile Include="Sources\Forms\OptionsPageUI.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Sources\Forms\OptionsPageUI.Designer.cs">
+      <DependentUpon>OptionsPageUI.cs</DependentUpon>
+    </Compile>
     <Compile Include="Sources\Forms\WutheringCommentsErrorList.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -151,6 +157,9 @@
     <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="Sources\WutheringCommentsPackage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Sources\CommentsOptionPage.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="VSPackage.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -162,6 +171,9 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>CommentResources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sources\Forms\OptionsPageUI.resx">
+      <DependentUpon>OptionsPageUI.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Sources\Forms\WutheringCommentsEditor.resx">
       <DependentUpon>WutheringCommentsEditor.cs</DependentUpon>

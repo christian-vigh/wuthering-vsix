@@ -44,6 +44,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DisplayCommentForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DisplayCommentForm.Designer.cs">
+      <DependentUpon>DisplayCommentForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="DisplayErrorsForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -58,6 +64,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="DisplayCommentForm.resx">
+      <DependentUpon>DisplayCommentForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DisplayErrorsForm.resx">
       <DependentUpon>DisplayErrorsForm.cs</DependentUpon>
     </EmbeddedResource>

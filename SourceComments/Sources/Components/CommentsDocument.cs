@@ -34,17 +34,17 @@ namespace Wuthering. WutheringComments
 		internal const string		EOL		=  "\r\n" ;
 
 		// Contents of embedded definitions and schema
-		public static string	StockDefinitions	{ get ; private set ; }
-		public static string	StockSchema		{ get ; private set ; }
+		public static string		StockDefinitions	{ get ; private set ; }
+		public static string		StockSchema		{ get ; private set ; }
 
 		// Definitions
-		public Author		Author			{ get ; private set ; }
-		public Categories	Categories		{ get ; private set ; } 
-		public Templates	Templates		{ get ; private set ; } 
-		public Groups		Groups			{ get ; private set ; } 
+		public Author			Author			{ get ; private set ; }
+		public Categories		Categories		{ get ; private set ; } 
+		public Templates		Templates		{ get ; private set ; } 
+		public Groups			Groups			{ get ; private set ; } 
 
 		// Variables used for comment expansion
-		public Variables	Variables		{ get ; private set ; }
+		public CommentVariables		Variables		{ get ; private set ; }
 
 		/// <summary>
 		/// Static constructor. Retrieves the contents of the xml definitions and xsd files embedded in
@@ -63,6 +63,27 @@ namespace Wuthering. WutheringComments
 		public XmlCommentsDocument ( string  xml_data  =  null ) :
 				base  ( ( xml_data  ==  null ) ?  StockDefinitions : xml_data, StockSchema )
 		   { }
+
+
+		/// <summary>
+		/// Retrieves a comment of the specified category for the language identified by the filename's extension.
+		/// </summary>
+		/// <param name="filename">Filename whose extension will be used to determine comment language.</param>
+		/// <param name="category">Comment category (file, block, code, etc.)</param>
+		/// <returns>
+		/// A array of strings containing the comment lines. An empty array is returned if no comment entry could be found.
+		/// </returns>
+		public string []	GetComment ( string  filename, string  category )
+		   {
+			Variables. Define ( "file", Path. GetFileName ( filename ) ) ;
+			Variables. Define ( "path", filename ) ;
+			Variables. Define ( "directory", Path. GetDirectoryName ( filename ) ) ;
+
+			string []	text	=  Groups. GetComment ( filename, category, Variables ) ;
+
+
+			return ( text ) ;
+		    }
 
 
 		/// <summary>
@@ -187,6 +208,9 @@ namespace Wuthering. WutheringComments
 				    }
 
 			    }
+
+			// Create the variable store at the end, since it may reference values that are available only after parsing
+			Variables		=  new CommentVariables ( this ) ;
 		    }
 
 
