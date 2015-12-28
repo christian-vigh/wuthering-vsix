@@ -14,20 +14,35 @@ namespace Wuthering. WutheringCommentsPackage
 	{
 		public WutheringCommentsOptionsPage	OptionsPage ;
 
+
 		public WutheringCommentsOptionsPageUI ( WutheringCommentsOptionsPage  page )
-		{
+		   {
 			InitializeComponent ( ) ;
 			OptionsPage	=  page ;
-		}
-
-		public void Initialize()  
-		   {      
-			textBox1.Text = OptionsPage.ExampleString;   
 		    }
 
-		private void textBox1_Leave ( object sender, EventArgs e )
-		{
-			OptionsPage.ExampleString	=  textBox1.Text ;
-		}
+
+		public void  Initialize()  
+		   {      
+			
+		    }
+
+
+		private void  FileOpenButton_Click  ( object  sender, EventArgs  e )
+		   {
+			FileOpenDialog. ShowDialog ( ) ;
+		    }
+
+
+		private void  GenerateButton_Click  ( object  sender, EventArgs  e )
+		   {
+
+		    }
+
+
+		private void  EditButton_Click  ( object  sender, EventArgs  e )
+		   {
+
+		    }
 	}
 }

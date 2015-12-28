@@ -68,14 +68,14 @@ namespace Wuthering. WutheringCommentsPackage
 					Symbols. Commands. InsertClassHeaderComment, 
 					Symbols. Commands. InsertFileHeaderComment, 
 					Symbols. Commands. InsertFunctionHeaderComment, 
+					Symbols. Commands. InsertMethodHeaderComment, 
 					Symbols. Commands. InsertStandardComment 
 				    }  
 			     ) ;
-
 		    }
 
 
-		private void  InsertCommentMenuItemCallback (object sender, EventArgs  e, CommandID  cmd )
+		private void  InsertCommentMenuItemCallback  ( object  sender, EventArgs  e, CommandID  cmd )
 		{
 			MessageBox ( "Item #" + cmd.ID ) ;
 		}

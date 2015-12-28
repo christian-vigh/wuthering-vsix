@@ -38,7 +38,8 @@ namespace  Wuthering. WutheringCommentsPackage. Symbols
 		public const uint	InsertFileHeaderComment		=  0x100 ;
 		public const uint	InsertBlockHeaderComment	=  0x101 ;
 		public const uint	InsertFunctionHeaderComment	=  0x102 ;
-		public const uint	InsertClassHeaderComment	=  0x103 ;
-		public const uint	InsertStandardComment		=  0x104 ;
+		public const uint	InsertMethodHeaderComment	=  0x103 ;
+		public const uint	InsertClassHeaderComment	=  0x104 ;
+		public const uint	InsertStandardComment		=  0x105 ;
 	    } ;
     }

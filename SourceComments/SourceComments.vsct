@@ -71,8 +71,8 @@
 		<Buttons>
 			<!--
 				To define a menu group you have to specify its ID, the parent menu and its display priority. 
-				The command is visible and enabled by default. If you need to change the visibility, status, etc, you can use
-				the CommandFlag node.
+				The command is visible and enabled by default. If you need to change the visibility, status, etc, 
+				you can use the CommandFlag node.
 				You can add more than one CommandFlag node e.g.:
 					<CommandFlag>DefaultInvisible</CommandFlag>
 					<CommandFlag>DynamicVisibility</CommandFlag>
@@ -81,41 +81,49 @@
 			<Button guid="GuidSourceCommentsMenu" id="InsertFileHeaderComment" priority="0x0100" type="Button">
 				<Parent guid="GuidSourceCommentsMenu" id="SourceCommentsSubMenuGroup"/>
 				<Strings>
-					<LocCanonicalName>Agagax.InsertFileHeaderComment</LocCanonicalName>
+					<LocCanonicalName>WutheringComments.InsertFileHeaderComment</LocCanonicalName>
 					<ButtonText>Insert file header</ButtonText>
-					<CommandName>Agagax.InsertFileHeaderComment ZZ</CommandName>
+					<CommandName>WutheringComments.InsertFileHeaderComment</CommandName>
 				</Strings>
 			</Button>
 			<Button guid="GuidSourceCommentsMenu" id="InsertBlockHeaderComment" priority="0x0101" type="Button">
 				<Parent guid="GuidSourceCommentsMenu" id="SourceCommentsSubMenuGroup"/>
 				<Strings>
-					<LocCanonicalName>Agagax.InsertBlockHeaderComment</LocCanonicalName>
+					<LocCanonicalName>WutheringComments.InsertBlockHeaderComment</LocCanonicalName>
 					<ButtonText>Insert block comment</ButtonText>
-					<CommandName>Agagax.InsertBlockHeaderComment ZZ</CommandName>
+					<CommandName>WutheringComments.InsertBlockHeaderComment</CommandName>
 				</Strings>
 			</Button>
 			<Button guid="GuidSourceCommentsMenu" id="InsertFunctionHeaderComment" priority="0x0102" type="Button">
 				<Parent guid="GuidSourceCommentsMenu" id="SourceCommentsSubMenuGroup"/>
 				<Strings>
-					<LocCanonicalName>Agagax.InsertFunctionHeaderComment</LocCanonicalName>
+					<LocCanonicalName>WutheringComments.InsertFunctionHeaderComment</LocCanonicalName>
 					<ButtonText>Insert function header</ButtonText>
-					<CommandName>Agagax.InsertFunctionHeaderComment ZZ</CommandName>
+					<CommandName>WutheringComments.InsertFunctionHeaderComment</CommandName>
 				</Strings>
 			</Button>
-			<Button guid="GuidSourceCommentsMenu" id="InsertClassHeaderComment" priority="0x0103" type="Button">
+			<Button guid="GuidSourceCommentsMenu" id="InsertMethodHeaderComment" priority="0x0103" type="Button">
 				<Parent guid="GuidSourceCommentsMenu" id="SourceCommentsSubMenuGroup"/>
 				<Strings>
-					<LocCanonicalName>Agagax.InsertClassHeaderComment</LocCanonicalName>
+					<LocCanonicalName>WutheringComments.InsertMethodHeaderComment</LocCanonicalName>
+					<ButtonText>Insert method header</ButtonText>
+					<CommandName>WutheringComments.InsertMethodHeaderComment</CommandName>
+				</Strings>
+			</Button>
+			<Button guid="GuidSourceCommentsMenu" id="InsertClassHeaderComment" priority="0x0104" type="Button">
+				<Parent guid="GuidSourceCommentsMenu" id="SourceCommentsSubMenuGroup"/>
+				<Strings>
+					<LocCanonicalName>WutheringComments.InsertClassHeaderComment</LocCanonicalName>
 					<ButtonText>Insert class header</ButtonText>
-					<CommandName>Agagax.InsertClassHeaderComment ZZ</CommandName>
+					<CommandName>WutheringComments.InsertClassHeaderComment</CommandName>
 				</Strings>
 			</Button>
-			<Button guid="GuidSourceCommentsMenu" id="InsertStandardComment" priority="0x0104" type="Button">
+			<Button guid="GuidSourceCommentsMenu" id="InsertStandardComment" priority="0x0105" type="Button">
 				<Parent guid="GuidSourceCommentsMenu" id="SourceCommentsSubMenuGroup"/>
 				<Strings>
-					<LocCanonicalName>Agagax.InsertStandardComment</LocCanonicalName>
-					<ButtonText>Insert comment</ButtonText>
-					<CommandName>Agagax.InsertStandardComment ZZ</CommandName>
+					<LocCanonicalName>WutheringComments.InsertStandardComment</LocCanonicalName>
+					<ButtonText>Insert comment for code block</ButtonText>
+					<CommandName>WutheringComments.InsertStandardComment</CommandName>
 				</Strings>
 			</Button>
 		</Buttons>
@@ -149,8 +157,9 @@
 			<IDSymbol name="InsertFileHeaderComment"	value="0x0100" />
 			<IDSymbol name="InsertBlockHeaderComment"	value="0x0101" />
 			<IDSymbol name="InsertFunctionHeaderComment"	value="0x0102" />
-			<IDSymbol name="InsertClassHeaderComment"	value="0x0103" />
-			<IDSymbol name="InsertStandardComment"		value="0x0104" />
+			<IDSymbol name="InsertMethodHeaderComment"	value="0x0103" />
+			<IDSymbol name="InsertClassHeaderComment"	value="0x0104" />
+			<IDSymbol name="InsertStandardComment"		value="0x0105" />
 		</GuidSymbol>
 		
 		<GuidSymbol name="guidImages" value="{67ce2693-b9cd-4c62-b141-e132cc227243}" >

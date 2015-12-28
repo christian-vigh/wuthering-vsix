@@ -130,11 +130,11 @@
     <Compile Include="Sources\Components\Groups.cs" />
     <Compile Include="Sources\Components\Templates.cs" />
     <Compile Include="Sources\Components\Wrappers.cs" />
-    <Compile Include="Sources\Forms\OptionsPageUI.cs">
+    <Compile Include="Sources\Forms\WutheringCommentsOptionsPageUI.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Sources\Forms\OptionsPageUI.Designer.cs">
-      <DependentUpon>OptionsPageUI.cs</DependentUpon>
+    <Compile Include="Sources\Forms\WutheringCommentsOptionsPageUI.Designer.cs">
+      <DependentUpon>WutheringCommentsOptionsPageUI.cs</DependentUpon>
     </Compile>
     <Compile Include="Sources\Forms\WutheringCommentsErrorList.cs">
       <SubType>Form</SubType>
@@ -157,7 +157,7 @@
     <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="Sources\WutheringCommentsPackage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Sources\CommentsOptionPage.cs">
+    <Compile Include="Sources\WutheringCommentsOptionPage.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="VSPackage.Designer.cs">
@@ -172,8 +172,8 @@
       <LastGenOutput>CommentResources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Sources\Forms\OptionsPageUI.resx">
-      <DependentUpon>OptionsPageUI.cs</DependentUpon>
+    <EmbeddedResource Include="Sources\Forms\WutheringCommentsOptionsPageUI.resx">
+      <DependentUpon>WutheringCommentsOptionsPageUI.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Sources\Forms\WutheringCommentsEditor.resx">
       <DependentUpon>WutheringCommentsEditor.cs</DependentUpon>
@@ -186,6 +186,7 @@
       <ManifestResourceName>VSPackage</ManifestResourceName>
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>VSPackage.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
@@ -216,7 +217,6 @@
       <SubType>Designer</SubType>
     </None>
     <EmbeddedResource Include="Data\WutheringComments.xml" />
-    <Content Include="Resources\Package.ico" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\..\Contribs\Scintilla.NET\src\ScintillaNET\ScintillaNET.csproj">

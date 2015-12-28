@@ -4,7 +4,7 @@
 	CommentsOptionPage.cs
 
     DESCRIPTION
-	A VSIX package to handle customized comments insertions.
+	Dialog page object for comment options.
 
     AUTHOR
 	Christian Vigh, 12/2015.
@@ -40,8 +40,10 @@ namespace Wuthering. WutheringCommentsPackage
 	[Guid ( "EA8680A0-4D08-4042-BA73-719F76F8A57E" )]
 	public class	WutheringCommentsOptionsPage	:  DialogPage
 	   {
-		
-		public string		ExampleString		{ get ; set ; }
+		public bool		UseCustomFile		{ get ; set ; }
+		public string		CustomFile		{ get ; set ; }
+		public DateTime		LastUpdate		{ get ; set ; }
+
 
 		[Browsable(false)]
 		[DesignerSerializationVisibility ( DesignerSerializationVisibility. Hidden )]
