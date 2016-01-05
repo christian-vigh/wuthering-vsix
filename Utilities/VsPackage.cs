@@ -32,7 +32,7 @@ using	Microsoft. VisualStudio. Shell ;
 
 namespace Utilities
    {
-# region	Shortcuts and aliases
+	# region	Shortcuts and aliases
 	// Shortcuts
 	using	UIShell			=  Microsoft. VisualStudio. Shell. Interop. IVsUIShell ;
 	using	MenuCommandService	=  OleMenuCommandService ;
@@ -74,10 +74,10 @@ namespace Utilities
 		QUERY				=  OLEMSGICON. OLEMSGICON_QUERY,
 		WARNING				=  OLEMSGICON. OLEMSGICON_WARNING
 	    }
-# endregion
+	# endregion
 
 
-# region	VSPackage class
+	# region	VSPackage class
 	public class 	VsPackage	:  Microsoft. VisualStudio. Shell. Package
 	  {
 		// Shortcuts
@@ -101,15 +101,16 @@ namespace Utilities
 		    }
 
 
-# region	Service retrieval methods
+		# region	Service and misc object retrieval methods
 		/// <summary>
-		/// Retrieves the SVsUIShell service interface.
+		/// Returns a tools options page of the specified type.
 		/// </summary>
-		/// <returns>An IVsUIShell interface, renamed as UIShell.</returns>
-		public UIShell  GetUIShell ( )
+		public  T  GetDialogPage<T> ( ) 
+			where T : DialogPage
 		   {
-			return ( ( UIShell ) GetService ( typeof ( SVsUIShell ) ) ) ;
+			return ( ( T ) GetDialogPage ( typeof ( T ) ) ) ;
 		    }
+
 
 		/// <summary>
 		/// Retrieves the IMenuCommandService interface.
@@ -129,10 +130,20 @@ namespace Utilities
 		   {
 			return ( ( DTE ) GetService ( typeof ( SDTE ) ) ) ;
 		    }
-# endregion
 
 
-# region	MessagBox() method
+		/// <summary>
+		/// Retrieves the SVsUIShell service interface.
+		/// </summary>
+		/// <returns>An IVsUIShell interface, renamed as UIShell.</returns>
+		public UIShell  GetUIShell ( )
+		   {
+			return ( ( UIShell ) GetService ( typeof ( SVsUIShell ) ) ) ;
+		    }
+		# endregion
+
+
+		# region	MessageBox() method
 		/// <summary>
 		/// Simplified message box display. This method uses the ShowMessageBox() method from the UIShell object.
 		/// Note that use can still use the Windows.Forms.MessageBox.Show() function instead.
@@ -179,7 +190,7 @@ namespace Utilities
 # endregion
 
 
-# region	RegisterMenuCommands() method
+		# region	RegisterMenuCommands() method
 		/// <summary>
 		/// Registers a callback for a series of menu ids.
 		/// </summary>
@@ -220,8 +231,7 @@ namespace Utilities
 
 			return ( true ) ;
 		    }
+		# endregion
 	   }
-# endregion
-
+	# endregion
     }
-# endregion
