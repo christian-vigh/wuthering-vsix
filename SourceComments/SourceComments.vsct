@@ -80,6 +80,8 @@
 			  -->
 			<Button guid="GuidSourceCommentsMenu" id="InsertFileHeaderComment" priority="0x0100" type="Button">
 				<Parent guid="GuidSourceCommentsMenu" id="SourceCommentsSubMenuGroup"/>
+				<CommandFlag>DefaultInvisible</CommandFlag>
+				<CommandFlag>DynamicVisibility</CommandFlag>
 				<Strings>
 					<LocCanonicalName>WutheringComments.InsertFileHeaderComment</LocCanonicalName>
 					<ButtonText>Insert file header</ButtonText>
@@ -88,6 +90,8 @@
 			</Button>
 			<Button guid="GuidSourceCommentsMenu" id="InsertBlockHeaderComment" priority="0x0101" type="Button">
 				<Parent guid="GuidSourceCommentsMenu" id="SourceCommentsSubMenuGroup"/>
+				<CommandFlag>DefaultInvisible</CommandFlag>
+				<CommandFlag>DynamicVisibility</CommandFlag>
 				<Strings>
 					<LocCanonicalName>WutheringComments.InsertBlockHeaderComment</LocCanonicalName>
 					<ButtonText>Insert block comment</ButtonText>
@@ -96,6 +100,8 @@
 			</Button>
 			<Button guid="GuidSourceCommentsMenu" id="InsertFunctionHeaderComment" priority="0x0102" type="Button">
 				<Parent guid="GuidSourceCommentsMenu" id="SourceCommentsSubMenuGroup"/>
+				<CommandFlag>DefaultInvisible</CommandFlag>
+				<CommandFlag>DynamicVisibility</CommandFlag>
 				<Strings>
 					<LocCanonicalName>WutheringComments.InsertFunctionHeaderComment</LocCanonicalName>
 					<ButtonText>Insert function header</ButtonText>
@@ -104,6 +110,8 @@
 			</Button>
 			<Button guid="GuidSourceCommentsMenu" id="InsertMethodHeaderComment" priority="0x0103" type="Button">
 				<Parent guid="GuidSourceCommentsMenu" id="SourceCommentsSubMenuGroup"/>
+				<CommandFlag>DefaultInvisible</CommandFlag>
+				<CommandFlag>DynamicVisibility</CommandFlag>
 				<Strings>
 					<LocCanonicalName>WutheringComments.InsertMethodHeaderComment</LocCanonicalName>
 					<ButtonText>Insert method header</ButtonText>
@@ -112,6 +120,8 @@
 			</Button>
 			<Button guid="GuidSourceCommentsMenu" id="InsertClassHeaderComment" priority="0x0104" type="Button">
 				<Parent guid="GuidSourceCommentsMenu" id="SourceCommentsSubMenuGroup"/>
+				<CommandFlag>DefaultInvisible</CommandFlag>
+				<CommandFlag>DynamicVisibility</CommandFlag>
 				<Strings>
 					<LocCanonicalName>WutheringComments.InsertClassHeaderComment</LocCanonicalName>
 					<ButtonText>Insert class header</ButtonText>
@@ -120,6 +130,8 @@
 			</Button>
 			<Button guid="GuidSourceCommentsMenu" id="InsertStandardComment" priority="0x0105" type="Button">
 				<Parent guid="GuidSourceCommentsMenu" id="SourceCommentsSubMenuGroup"/>
+				<CommandFlag>DefaultInvisible</CommandFlag>
+				<CommandFlag>DynamicVisibility</CommandFlag>
 				<Strings>
 					<LocCanonicalName>WutheringComments.InsertStandardComment</LocCanonicalName>
 					<ButtonText>Insert comment for code block</ButtonText>

@@ -2,8 +2,8 @@
 <ArrayOfArrayOfArrayOfString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <ArrayOfArrayOfString>
     <ArrayOfString>
-      <string>E:\Visual Studio\Projects\VSIX\Wuthering\SourceComments\Sources\Forms\WutheringCommentsEditor.cs</string>
-      <string>E:\Visual Studio\Projects\VSIX\Wuthering\SourceComments\Sources\Forms\WutheringCommentsEditor.cs</string>
+      <string>e:\visual studio\projects\vsix\wuthering\sourcecomments\sources\forms\wutheringcommentseditor.cs</string>
+      <string>e:\visual studio\projects\vsix\wuthering\sourcecomments\sources\forms\wutheringcommentseditor.cs</string>
     </ArrayOfString>
     <ArrayOfString>
       <string>e:\visual studio\projects\vsix\wuthering\sourcecomments\sources\components\comments.cs</string>
@@ -24,8 +24,8 @@
       <string>e:\visual studio\projects\vsix\wuthering\sourcecomments\sources\symbols.cs</string>
     </ArrayOfString>
     <ArrayOfString>
-      <string>E:\Visual Studio\Projects\VSIX\Wuthering\SourceComments\Sources\Forms\WutheringCommentsOptionsPageUI.cs</string>
-      <string>E:\Visual Studio\Projects\VSIX\Wuthering\SourceComments\Sources\Forms\WutheringCommentsOptionsPageUI.cs</string>
+      <string>e:\visual studio\projects\vsix\wuthering\sourcecomments\sources\forms\wutheringcommentsoptionspageui.cs</string>
+      <string>e:\visual studio\projects\vsix\wuthering\sourcecomments\sources\forms\wutheringcommentsoptionspageui.cs</string>
     </ArrayOfString>
   </ArrayOfArrayOfString>
 </ArrayOfArrayOfArrayOfString>

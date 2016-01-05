@@ -65,7 +65,7 @@ namespace Wuthering.WutheringCommentsPackage {
         /// </summary>
         internal static System.Drawing.Icon _400 {
             get {
-                object obj = ResourceManager.GetObject("400", resourceCulture);
+                object obj = ResourceManager.GetObject("#400", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
@@ -80,7 +80,7 @@ namespace Wuthering.WutheringCommentsPackage {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to SourceComments.
+        ///   Looks up a localized string similar to Wuthering Tools.
         /// </summary>
         internal static string PackageName {
             get {
