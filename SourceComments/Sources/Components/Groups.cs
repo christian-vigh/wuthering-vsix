@@ -22,7 +22,7 @@ using  System. Text ;
 using  System. Threading. Tasks ;
 using  System. Xml ;
 
-using  Utilities ;
+using  VsPackage ;
 using  Thrak. Types ;
 using  Thrak. Xml ;
 
@@ -68,16 +68,15 @@ namespace Wuthering. WutheringComments
 		/// <summary>
 		/// Retrieves a comment from the specified category, adapted to the specified file.
 		/// </summary>
-		/// <param name="filename">Filename to be used. The file extension is used to determine the comment type.</param>
+		/// <param name="extension">File extension to be checked</param>
 		/// <param name="category">Comment category, as defined in the xml comments file.</param>
 		/// <param name="variables">Variable store to be used for expanding variable references in the comment text.</param>
 		/// <returns>
 		/// A string array containing the comment lines. An empty array is returned if the filename has no associated comment
 		/// group or if the specified category does not exist.
 		/// </returns>
-		public string []  GetComment ( string  filename, string  category, CommentVariables  variables )
+		public string []  GetComment ( string  extension, string  category, CommentVariables  variables )
 		   {
-			string		extension		=  Path. GetExtension ( filename ) ;
 			string []	empty			=  new string [] {} ;
 
 
@@ -95,6 +94,26 @@ namespace Wuthering. WutheringComments
 				return ( empty ) ;
 			else				
 				return ( comment. GetLines ( variables ) ) ;
+		    }
+
+
+		/// <summary>
+		/// Checks if a category is defined for a file extension.
+		/// </summary>
+		/// <param name="extension">File extension to be checked</param>
+		/// <param name="category">Comment category, as defined in the xml comments file.</param>
+		/// <returns>True if the specified category is defined for the specified extension, false otherwise.</returns>
+		public bool  HasCategory ( string  extension, string  category )
+		   {
+			if  ( extension. Length  ==  0 )
+				return ( false ) ;
+
+			Group		group			=  FindGroupByExtension ( extension ) ;
+			
+			if  ( group  ==  null  ||  ! group. Comments. Exists ( category ) )
+				return ( false ) ;
+
+			return ( true ) ;
 		    }
 	    }
 

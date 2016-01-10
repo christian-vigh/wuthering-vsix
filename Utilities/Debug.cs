@@ -25,7 +25,7 @@ using	System. Text ;
 using	System. Threading. Tasks ;
 
 
-namespace	Utilities
+namespace	VsPackage
    {
 	public static class Debug
 	   {

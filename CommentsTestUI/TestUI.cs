@@ -28,9 +28,10 @@ using  System. Xml ;
 using  System. Xml. Schema ;
 using  System. Xml. XPath ;
 
+using  Thrak. Input ;
 using  Thrak. Xml ;
 using  Wuthering. WutheringComments ;
-using  Utilities ;
+using  VsPackage ;
 
 
 namespace CommentsTestUI

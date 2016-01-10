@@ -10,7 +10,7 @@ using System. Windows. Forms;
 
 using  Thrak. Xml ;
 using  Wuthering. WutheringComments ;
-using  Utilities ;
+using  VsPackage ;
 
 
 namespace CommentsTestUI

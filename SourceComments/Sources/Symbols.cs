@@ -24,16 +24,18 @@ namespace  Wuthering. WutheringCommentsPackage. Symbols
    {
 	static class Guids
 	   {
-		public const string	PackageGuid			=  "bad8076a-b8e4-4f03-ae47-f797221ad2d6";
-		public const string	SourceCommentsMenuGuid		=  "c2b54412-76ed-48c0-aa3c-16ddfef28b63";
+		public const string	Package				=  "bad8076a-b8e4-4f03-ae47-f797221ad2d6" ;
+		public const string	SourceCommentsMenu		=  "c2b54412-76ed-48c0-aa3c-16ddfef28b63" ;
 	    }
 
 
 	static class  Commands 
 	   {
-		public const int	SourceCommentsMenuGroup		=  0x1020 ;
 		public const int	SourceCommentsSubMenu		=  0x1030 ;
+		public const int	SourceCommentsMenuGroup		=  0x1020 ;
 		public const int	SourceCommentsSubMenuGroup	=  0x1040 ;
+		public const int	SourceFormatMenuGroup		=  0x1050 ;
+		public const int	SourceFormatSubMenuGroup	=  0x1060 ;
 
 		public const uint	InsertFileHeaderComment		=  0x100 ;
 		public const uint	InsertBlockHeaderComment	=  0x101 ;
@@ -41,5 +43,8 @@ namespace  Wuthering. WutheringCommentsPackage. Symbols
 		public const uint	InsertMethodHeaderComment	=  0x103 ;
 		public const uint	InsertClassHeaderComment	=  0x104 ;
 		public const uint	InsertStandardComment		=  0x105 ;
+
+		public const uint	EmbraceSelection		=  0x200 ;
+		public const uint	ArrifySelection			=  0x201 ;
 	    } ;
     }

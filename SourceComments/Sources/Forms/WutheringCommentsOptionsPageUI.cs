@@ -24,7 +24,7 @@ namespace Wuthering. WutheringCommentsPackage
 
 		public void  Initialize()  
 		   {      
-			
+			UseCustomFileCheckbox. Focus ( ) ;
 		    }
 
 
@@ -44,5 +44,6 @@ namespace Wuthering. WutheringCommentsPackage
 		   {
 
 		    }
+
 	}
 }

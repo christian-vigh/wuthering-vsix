@@ -30,7 +30,7 @@ using	Microsoft. VisualStudio. OLE. Interop ;
 using	Microsoft. VisualStudio. Shell ;
 
 
-namespace Utilities
+namespace VsPackage
    {
 	# region	Shortcuts and aliases
 	// Shortcuts
@@ -76,15 +76,14 @@ namespace Utilities
 	    }
 	# endregion
 
-
-	# region	VSPackage class
+	# region VsPackage class
 	public class 	VsPackage	:  Microsoft. VisualStudio. Shell. Package
 	  {
 		// Shortcuts
 		protected Func<int, int>	ThrowOnFailure		=  Microsoft. VisualStudio. ErrorHandler. ThrowOnFailure ;
 
 		// This delegate allows a menu item callback function to have a 3rd parameter, the menu item id....
-		protected delegate void		MenuCommandHandler ( Object  sender, EventArgs  e, CommandID  id ) ;
+		protected delegate void		MenuCommandHandler ( MenuCommand  sender, EventArgs  e ) ;
 
 		// Base directory where the vsix is installed
 		public string	PackageDirectory	{ get ; private set ; }
@@ -198,7 +197,7 @@ namespace Utilities
 		/// <param name="handler">Callback function.</param>
 		/// <param name="idlist">List of menu ids to be associated with this callback.</param>
 		/// <returns>False if the menu command service could not be retrieved, true otherwise.</returns>
-		protected bool	RegisterMenuCommands ( string  guid_string, MenuCommandHandler  handler, uint []  idlist )
+		protected bool	RegisterMenuCommands ( string  guid_string, uint []  idlist, MenuCommandHandler  handler )
 		   {
 			// Get the menu command service object
 			MenuCommandService		mcs	=  GetCommandService ( ) ;
@@ -214,13 +213,13 @@ namespace Utilities
 			   {
 				// You need a CommandID object...
 				CommandID	cmdid		=  new CommandID ( guid, ( int ) id ) ;
-				// ... to create a MenuItem one. Note that the callback is wrapped in aa lambda function,
-				// so that we are able to give it the id of the menu item which has been clicked
+				// ... to create a MenuItem one. Note that the callback is wrapped in a lambda function,
+				// to give it a MenuCommand object for the "sender" parameter
 				MenuCommand	menuitem	=  new MenuCommand 
 				   ( 
 					( object  sender, EventArgs  e ) =>
 					   {
-						handler ( sender, e, cmdid ) ;
+						handler ( ( MenuCommand ) sender, e ) ;
 					    },
 					cmdid
 				    ) ;

@@ -5,6 +5,9 @@
 		This is the file that defines the actual layout and type of the commands.
 		It is divided in different sections (e.g. command definition, command placement, ...), with each defining a specific set of properties.
 		See the comment before each section for more details about how to use it. 
+		See also :
+		
+		http://dotneteers.net/blogs/divedeeper/archive/2010/05/23/vs-2010-package-development-chapter-2-commands-menus-and-toolbars.aspx	
 	  -->
 
 	<!--  
@@ -39,11 +42,18 @@
 			<Menu guid="GuidSourceCommentsMenu" id="SourceCommentsSubMenu" type="Menu" priority="0x1000">
 				<Parent guid="GuidSourceCommentsMenu" id="SourceCommentsMenuGroup" />
 				<CommandFlag>IconAndText</CommandFlag>
-				<CommandFlag>DefaultInvisible</CommandFlag>
-				<!-- <CommandFlag>DynamicVisibility</CommandFlag> -->
 				<Strings>
-					<ButtonText>Comments</ButtonText>
-					<CommandName>Comments</CommandName>
+					<ButtonText>Comment insertion</ButtonText>
+					<CommandName>Comment insertion</CommandName>
+				</Strings>
+			</Menu>
+			
+			<Menu guid="GuidSourceCommentsMenu" id="SourceFormatSubMenu" type="Menu" priority="0x1000">
+				<Parent guid="GuidSourceCommentsMenu" id="SourceCommentsMenuGroup" />
+				<CommandFlag>IconAndText</CommandFlag>
+				<Strings>
+					<ButtonText>Formatting</ButtonText>
+					<CommandName>Formatting</CommandName>
 				</Strings>
 			</Menu>
 		</Menus>
@@ -60,6 +70,10 @@
 			
 			<Group guid="GuidSourceCommentsMenu" id="SourceCommentsSubMenuGroup" priority="0x0600">
 				<Parent guid="GuidSourceCommentsMenu" id="SourceCommentsSubMenu"/>
+			</Group>
+			
+			<Group guid="GuidSourceCommentsMenu" id="SourceFormatSubMenuGroup" priority="0x0600">
+				<Parent guid="GuidSourceCommentsMenu" id="SourceFormatSubMenu"/>
 			</Group>
 		</Groups>
 
@@ -84,7 +98,7 @@
 				<CommandFlag>DynamicVisibility</CommandFlag>
 				<Strings>
 					<LocCanonicalName>WutheringComments.InsertFileHeaderComment</LocCanonicalName>
-					<ButtonText>Insert file header</ButtonText>
+					<ButtonText>File header</ButtonText>
 					<CommandName>WutheringComments.InsertFileHeaderComment</CommandName>
 				</Strings>
 			</Button>
@@ -94,7 +108,7 @@
 				<CommandFlag>DynamicVisibility</CommandFlag>
 				<Strings>
 					<LocCanonicalName>WutheringComments.InsertBlockHeaderComment</LocCanonicalName>
-					<ButtonText>Insert block comment</ButtonText>
+					<ButtonText>Block</ButtonText>
 					<CommandName>WutheringComments.InsertBlockHeaderComment</CommandName>
 				</Strings>
 			</Button>
@@ -104,7 +118,7 @@
 				<CommandFlag>DynamicVisibility</CommandFlag>
 				<Strings>
 					<LocCanonicalName>WutheringComments.InsertFunctionHeaderComment</LocCanonicalName>
-					<ButtonText>Insert function header</ButtonText>
+					<ButtonText>Function header</ButtonText>
 					<CommandName>WutheringComments.InsertFunctionHeaderComment</CommandName>
 				</Strings>
 			</Button>
@@ -114,7 +128,7 @@
 				<CommandFlag>DynamicVisibility</CommandFlag>
 				<Strings>
 					<LocCanonicalName>WutheringComments.InsertMethodHeaderComment</LocCanonicalName>
-					<ButtonText>Insert method header</ButtonText>
+					<ButtonText>Method header</ButtonText>
 					<CommandName>WutheringComments.InsertMethodHeaderComment</CommandName>
 				</Strings>
 			</Button>
@@ -124,7 +138,7 @@
 				<CommandFlag>DynamicVisibility</CommandFlag>
 				<Strings>
 					<LocCanonicalName>WutheringComments.InsertClassHeaderComment</LocCanonicalName>
-					<ButtonText>Insert class header</ButtonText>
+					<ButtonText>Class header</ButtonText>
 					<CommandName>WutheringComments.InsertClassHeaderComment</CommandName>
 				</Strings>
 			</Button>
@@ -134,8 +148,30 @@
 				<CommandFlag>DynamicVisibility</CommandFlag>
 				<Strings>
 					<LocCanonicalName>WutheringComments.InsertStandardComment</LocCanonicalName>
-					<ButtonText>Insert comment for code block</ButtonText>
+					<ButtonText>Code block</ButtonText>
 					<CommandName>WutheringComments.InsertStandardComment</CommandName>
+				</Strings>
+			</Button>
+			
+				
+			<Button guid="GuidSourceCommentsMenu" id="EmbraceSelection" priority="0x0106" type="Button">
+				<Parent guid="GuidSourceCommentsMenu" id="SourceFormatSubMenuGroup"/>
+				<CommandFlag>DefaultInvisible</CommandFlag>
+				<CommandFlag>DynamicVisibility</CommandFlag>
+				<Strings>
+					<LocCanonicalName>WutheringComments.Embrace</LocCanonicalName>
+					<ButtonText>Embrace {}</ButtonText>
+					<CommandName>WutheringComments.Embrace</CommandName>
+				</Strings>
+			</Button>
+			<Button guid="GuidSourceCommentsMenu" id="ArrifySelection" priority="0x0107" type="Button">
+				<Parent guid="GuidSourceCommentsMenu" id="SourceFormatSubMenuGroup"/>
+				<CommandFlag>DefaultInvisible</CommandFlag>
+				<CommandFlag>DynamicVisibility</CommandFlag>
+				<Strings>
+					<LocCanonicalName>WutheringComments.Arrify</LocCanonicalName>
+					<ButtonText>Embrace []</ButtonText>
+					<CommandName>WutheringComments.Arrify</CommandName>
 				</Strings>
 			</Button>
 		</Buttons>
@@ -155,6 +191,31 @@
 
 	</Commands>
 
+	<!--
+		To be enabled if you find in the microsoft documentation mess about vs packages which guid
+		to be used for adding shortcuts to the text editor. Tried guidVsStd97, guidStdEditor, 
+		GUID_VxTextBuffer, GUID_TextEditorFactory. 
+		Nothing works.
+	<KeyBindings>
+		<KeyBinding guid="GuidSourceCommentsMenu" id="InsertFileHeaderComment" editor="GUID_VxTextBuffer"
+			    key1="W" mod1="Control" key2="H" mod2="Control"/>
+		<KeyBinding guid="GuidSourceCommentsMenu" id="InsertBlockHeaderComment" editor="GUID_VxTextBuffer"
+			    key1="W" mod1="Control" key2="B" mod2="Control"/>
+		<KeyBinding guid="GuidSourceCommentsMenu" id="InsertFunctionHeaderComment" editor="GUID_VxTextBuffer"
+			    key1="W" mod1="Control" key2="F" mod2="Control"/>
+		<KeyBinding guid="GuidSourceCommentsMenu" id="InsertMethodHeaderComment" editor="GUID_VxTextBuffer"
+			    key1="W" mod1="Control" key2="M" mod2="Control"/>
+		<KeyBinding guid="GuidSourceCommentsMenu" id="InsertClassHeaderComment" editor="GUID_VxTextBuffer"
+			    key1="W" mod1="Control" key2="C" mod2="Control"/>
+		<KeyBinding guid="GuidSourceCommentsMenu" id="InsertStandardComment" editor="GUID_VxTextBuffer"
+			    key1="W" mod1="Control" key2="S" mod2="Control"/>
+		<KeyBinding guid="GuidSourceCommentsMenu" id="EmbraceSelection" editor="GUID_VxTextBuffer"
+			    key1="W" mod1="Control" key2="E" mod2="Control"/>
+		<KeyBinding guid="GuidSourceCommentsMenu" id="ArrayfySelection" editor="GUID_VxTextBuffer"
+			    key1="W" mod1="Control" key2="A" mod2="Control"/>
+	</KeyBindings>
+	-->
+
 	<!-- The Symbols node defines the various symbols (GUIDs and command Ids) referenced in this <CommandTable> node -->
 	<Symbols>
 		<!-- Package -->
@@ -165,6 +226,8 @@
 			<IDSymbol name="SourceCommentsMenuGroup"	value="0x1020" />
 			<IDSymbol name="SourceCommentsSubMenu"		value="0x1030" />
 			<IDSymbol name="SourceCommentsSubMenuGroup"	value="0x1040" />
+			<IDSymbol name="SourceFormatSubMenu"		value="0x1050" />
+			<IDSymbol name="SourceFormatSubMenuGroup"	value="0x1060" />
 			
 			<IDSymbol name="InsertFileHeaderComment"	value="0x0100" />
 			<IDSymbol name="InsertBlockHeaderComment"	value="0x0101" />
@@ -172,6 +235,8 @@
 			<IDSymbol name="InsertMethodHeaderComment"	value="0x0103" />
 			<IDSymbol name="InsertClassHeaderComment"	value="0x0104" />
 			<IDSymbol name="InsertStandardComment"		value="0x0105" />
+			<IDSymbol name="EmbraceSelection"		value="0x0200" />
+			<IDSymbol name="ArrifySelection"		value="0x0201" />
 		</GuidSymbol>
 		
 		<GuidSymbol name="guidImages" value="{67ce2693-b9cd-4c62-b141-e132cc227243}" >
@@ -183,5 +248,4 @@
 			<IDSymbol name="bmpPicStrikethrough" value="6" />
 		</GuidSymbol>
 	</Symbols>
-
 </CommandTable>

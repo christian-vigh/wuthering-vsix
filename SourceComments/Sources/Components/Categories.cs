@@ -21,7 +21,7 @@ using  System. Text ;
 using  System. Threading. Tasks ;
 using  System. Xml ;
 
-using  Utilities ;
+using  VsPackage ;
 using  Thrak. Types ;
 using  Thrak. Xml ;
 

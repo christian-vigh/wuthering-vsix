@@ -1,11 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.30723.0
+VisualStudioVersion = 12.0.40629.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Comments", "SourceComments\Comments.csproj", "{66499BB5-223F-495D-8DDD-97DA479F3138}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Utilities", "Utilities\Utilities.csproj", "{5E7B85EA-41A4-447C-9F57-EC8240E04866}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VsPackage", "Utilities\VsPackage.csproj", "{5E7B85EA-41A4-447C-9F57-EC8240E04866}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommentsTestUI", "CommentsTestUI\CommentsTestUI.csproj", "{4E516F56-128B-4097-9AE2-4A425633B5A7}"
 EndProject

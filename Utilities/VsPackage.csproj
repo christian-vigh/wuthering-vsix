@@ -7,7 +7,7 @@
     <ProjectGuid>{5E7B85EA-41A4-447C-9F57-EC8240E04866}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Utilities</RootNamespace>
+    <RootNamespace>VsPackage</RootNamespace>
     <AssemblyName>Utilities</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>

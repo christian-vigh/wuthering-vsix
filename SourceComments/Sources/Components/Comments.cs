@@ -22,7 +22,7 @@ using  System. Text. RegularExpressions ;
 using  System. Threading. Tasks ;
 using  System. Xml ;
 
-using  Utilities ;
+using  VsPackage ;
 using  Thrak. Structures ;
 using  Thrak. Types ;
 using  Thrak. Xml ;

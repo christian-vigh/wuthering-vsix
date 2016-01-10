@@ -104,9 +104,9 @@
       <Project>{66499bb5-223f-495d-8ddd-97da479f3138}</Project>
       <Name>Comments</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Utilities\Utilities.csproj">
+    <ProjectReference Include="..\Utilities\VsPackage.csproj">
       <Project>{5e7b85ea-41a4-447c-9f57-ec8240e04866}</Project>
-      <Name>Utilities</Name>
+      <Name>VsPackage</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
