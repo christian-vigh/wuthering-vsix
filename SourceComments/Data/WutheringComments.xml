@@ -1,6 +1,6 @@
 ﻿<wuthering-comments>
 	
-	<author name="Christian Vigh" initials="AL" email="christian.vigh@orange.fr" website="www.wuthering-bytes.com"/>
+	<author name="Christian Vigh" initials="CV" email="christian.vigh@orange.fr" website="www.wuthering-bytes.com"/>
 
 	<categories>
 		<category name="block"		description="Thick block comment"/>

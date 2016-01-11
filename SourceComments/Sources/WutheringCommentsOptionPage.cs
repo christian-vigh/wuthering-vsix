@@ -92,6 +92,14 @@ namespace Wuthering. WutheringCommentsPackage
 			else
 				e. ApplyBehavior	=  ApplyKind. Cancel ;
 		    }
+
+
+		/// <summary>
+		/// Performs some operations when the tools page is displayed.
+		/// </summary>
+		protected override void OnActivate ( CancelEventArgs e )
+		   {
+		    }
 		# endregion
 
 
@@ -122,7 +130,7 @@ namespace Wuthering. WutheringCommentsPackage
 							   "Standard definitions will be used instead" ) ;
 				     }
 			    }
-
+		
 			return ( new XmlCommentsDocument ( ) ) ;
 		    }
 

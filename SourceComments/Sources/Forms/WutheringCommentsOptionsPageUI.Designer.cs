@@ -54,6 +54,7 @@
 			this.UseCustomFileCheckbox.TabIndex = 0;
 			this.UseCustomFileCheckbox.Text = "Use custom file :";
 			this.UseCustomFileCheckbox.UseVisualStyleBackColor = true;
+			this.UseCustomFileCheckbox.CheckedChanged += new System.EventHandler(this.UseCustomFileCheckbox_CheckedChanged);
 			// 
 			// FilenameTextbox
 			// 
@@ -75,6 +76,7 @@
 			// 
 			// FileOpenDialog
 			// 
+			this.FileOpenDialog.DefaultExt = "xml";
 			this.FileOpenDialog.Filter = "Xml files|*.xml|All files (*.*)|*.*";
 			this.FileOpenDialog.SupportMultiDottedExtensions = true;
 			this.FileOpenDialog.Title = "Open a custom comment definitions file";
@@ -93,7 +95,7 @@
 			// EditButton
 			// 
 			this.EditButton.Image = ((System.Drawing.Image)(resources.GetObject("EditButton.Image")));
-			this.EditButton.Location = new System.Drawing.Point(363, 27);
+			this.EditButton.Location = new System.Drawing.Point(364, 27);
 			this.EditButton.Name = "EditButton";
 			this.EditButton.Size = new System.Drawing.Size(23, 23);
 			this.EditButton.TabIndex = 4;
@@ -103,7 +105,7 @@
 			// 
 			// FileSaveDialog
 			// 
-			this.FileSaveDialog.FileName = "Wuthering comments.xml";
+			this.FileSaveDialog.FileName = "WutheringComments.xml";
 			this.FileSaveDialog.Filter = "Xml files|*.xml|All files (*.*)|*.*";
 			this.FileSaveDialog.SupportMultiDottedExtensions = true;
 			this.FileSaveDialog.Title = "Output comment definitions file";

@@ -271,7 +271,7 @@ namespace Wuthering. WutheringComments
 			dte. UndoContext. Open ( "Embrace " + start + stop ) ;
 
 			// Insert an opening brace (or else) before the first line of the selection
-			line_start_point. Insert ( prepend_text + " ". Repeat ( indent_start ) + start + "\n" ) ;
+			line_start_point. Insert ( prepend_text + " ". Repeat ( indent_start - 1 ) + start + "\n" ) ;
 
 			// Unindent this line so that it appears before the indentation level of the selection
 			line_start_point. MoveToLineAndOffset ( line_start_point. Line - 1, 1 ) ;
@@ -284,7 +284,7 @@ namespace Wuthering. WutheringComments
 			// (the selection does not have to cover the entire line)
 			EditPoint	end_of_selection	=  selection. GetBottomPoint ( ). CreateEolEditPoint ( ) ;
 
-			end_of_selection. Insert ( "\n" + prepend_text + " ". Repeat ( indent_stop ) + stop + "\n" ) ;
+			end_of_selection. Insert ( "\n" + prepend_text + " ". Repeat ( indent_stop - 1 ) + stop + "\n" ) ;
 			end_of_selection. MoveToLineAndOffset ( end_of_selection. Line - 1, 1 ) ;
 			brace_eol	=  end_of_selection. CreateEolEditPoint ( ) ;
 

@@ -57,13 +57,13 @@ namespace Wuthering. WutheringCommentsPackage
 
 
 		// Visual Studio DTE object
-		private		DTE				EnvDTE ;
+		private		DTE					EnvDTE ;
 		// Options page settings
-		private		WutheringCommentsOptionsPage	CommentsOptionsPage ;
+		private			WutheringCommentsOptionsPage	CommentsOptionsPage ;
 		// Currently active xml comment definitions document
-		internal	XmlCommentsDocument		XmlComments ;
+		internal static 	XmlCommentsDocument		XmlComments ;
 		// Menu command ids
-		private		Dictionary<uint,string>		CommentsMenuCommands	=  new  Dictionary<uint,string> ( )
+		private			Dictionary<uint,string>		CommentsMenuCommands	=  new  Dictionary<uint,string> ( )
 		   {
 			{ Symbols. Commands. InsertBlockHeaderComment	, "block"	},
 			{ Symbols. Commands. InsertClassHeaderComment	, "class"	},
@@ -108,8 +108,6 @@ namespace Wuthering. WutheringCommentsPackage
 
 			// Install event handlers
 			EnvDTE. Events. WindowEvents. WindowActivated	+=  new WindowActivatedEventHandler ( OnWindowActivated ) ;
-
-
 		    }
 		# endregion
 

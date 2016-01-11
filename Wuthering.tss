@@ -1,2 +1,43 @@
 <?xml version="1.0"?>
-<ArrayOfArrayOfArrayOfString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" />
+<ArrayOfArrayOfArrayOfString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <ArrayOfArrayOfString>
+    <ArrayOfString>
+      <string>e:\visual studio\projects\vsix\wuthering\sourcecomments\wutheringcomments.vsct</string>
+    </ArrayOfString>
+    <ArrayOfString>
+      <string>E:\Visual Studio\Projects\VSIX\Wuthering\SourceComments\Sources\Components\CommentsDocument.cs</string>
+    </ArrayOfString>
+    <ArrayOfString>
+      <string>e:\visual studio\projects\vsix\wuthering\sourcecomments\sources\symbols.cs</string>
+    </ArrayOfString>
+    <ArrayOfString>
+      <string>E:\Visual Studio\Projects\VSIX\Wuthering\SourceComments\Sources\WutheringCommentsPackage.cs</string>
+    </ArrayOfString>
+    <ArrayOfString>
+      <string>e:\visual studio\projects\vsix\wuthering\sourcecomments\sources\wutheringcommentsoptionpage.cs</string>
+    </ArrayOfString>
+    <ArrayOfString>
+      <string>e:\visual studio\projects\libraries\thrak\sources\dte\textselection.cs</string>
+    </ArrayOfString>
+    <ArrayOfString>
+      <string>e:\visual studio\projects\libraries\thrak\sources\dte\editpoint.cs</string>
+    </ArrayOfString>
+    <ArrayOfString>
+      <string>e:\visual studio\projects\vsix\wuthering\sourcecomments\data\wutheringcomments.xml</string>
+    </ArrayOfString>
+    <ArrayOfString>
+      <string>E:\Visual Studio\Projects\Libraries\Thrak\Sources\Types\String.cs</string>
+    </ArrayOfString>
+    <ArrayOfString>
+      <string>E:\Visual Studio\Projects\VSIX\Wuthering\SourceComments\Sources\Forms\WutheringCommentsOptionsPageUI.cs</string>
+      <string>E:\Visual Studio\Projects\VSIX\Wuthering\SourceComments\Sources\Forms\WutheringCommentsOptionsPageUI.cs</string>
+    </ArrayOfString>
+    <ArrayOfString>
+      <string>E:\Visual Studio\Projects\VSIX\Wuthering\CommentsTestUI\TestUI.cs</string>
+    </ArrayOfString>
+    <ArrayOfString>
+      <string>E:\Visual Studio\Projects\VSIX\Wuthering\SourceComments\Sources\Forms\WutheringCommentsEditor.cs</string>
+      <string>E:\Visual Studio\Projects\VSIX\Wuthering\SourceComments\Sources\Forms\WutheringCommentsEditor.cs</string>
+    </ArrayOfString>
+  </ArrayOfArrayOfString>
+</ArrayOfArrayOfArrayOfString>

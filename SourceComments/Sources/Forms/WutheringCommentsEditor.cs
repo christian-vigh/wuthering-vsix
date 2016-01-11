@@ -21,6 +21,7 @@ using  System. Collections. Generic ;
 using  System. ComponentModel ;
 using  System. Data ;
 using  System. Drawing ;
+using  System. IO ;
 using  System. Linq ;
 using  System. Text ;
 using  System. Threading. Tasks ;
@@ -37,6 +38,7 @@ namespace Wuthering. WutheringComments
    {
 	public partial class WutheringCommentsEditor : Form
 	   {
+		public string				Filename		{ get ; private set ; }
 		/// <summary>
 		/// Text to be edited. Will be updated when the user clicks the Save button.
 		/// </summary>
@@ -55,11 +57,13 @@ namespace Wuthering. WutheringComments
 		/// Initializes the editor.
 		/// </summary>
 		/// <param name="text">Initial text to be edited.</param>
-		public WutheringCommentsEditor ( string  text )
+		public WutheringCommentsEditor ( string  filename )
 		   {
 			InitializeComponent ( ) ;
-			EditedText	=  text ;
+			Filename	=  filename ;
+			EditedText	=  File. ReadAllText ( filename ) ;
 			Modified	=  false ;
+			Text		=  "Editing : " + filename ;
 		    }
 
 
@@ -208,9 +212,11 @@ namespace Wuthering. WutheringComments
 		private void  SaveContents ( )
 		   {
 			EditedText	=  ConfigurationEditor. Text ;
-			Modified	=  true ;
+			File. WriteAllText ( Filename, EditedText ) ;
+			Modified	=  false ;
 
 			ConfigurationEditor. SetSavePoint ( ) ;
+			UpdateStatusbar ( ) ;
 		    }
 
 
@@ -260,13 +266,13 @@ namespace Wuthering. WutheringComments
 			   {
 				SBModified. Text		=  "*" ;
 				SBModified. ToolTipText		=  "Contents have been modified" ;
-				SaveButton. Visible		=  true ;
+				SaveButton. Enabled		=  true ;
 			    }
 			else
 			   {
 				SBModified. Text		=  "" ;
 				SBModified. ToolTipText		=  "" ;
-				SaveButton. Visible		=  false ;
+				SaveButton. Enabled		=  false ;
 			    }
 		    }
 		# endregion 
