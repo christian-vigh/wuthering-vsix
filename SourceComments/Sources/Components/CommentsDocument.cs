@@ -21,6 +21,7 @@ using	System. Linq ;
 using	System. Reflection ;
 using	System. Text ;
 using	System. Threading. Tasks ;
+using   System. Windows. Forms ;
 using	System. Xml ;
 using	Microsoft. VisualBasic ;
 using	EnvDTE ;
@@ -110,10 +111,6 @@ namespace Wuthering. WutheringComments
 			// "line_start_point" is the beginning of the line where the caret is
 			EditPoint	point			=  selection. GetTopPoint ( ),
 					line_start_point	=  point. CreateBolEditPoint ( ) ;
-
-			// We will perform several insert operations ; it will be nice to be able to undo them in one shot, so
-			// create an undo context
-			dte. UndoContext. Open ( "Insert \"" + category + "\" comment" ) ;
 
 			// Get leading spaces
 			string		prepend_text		=  line_start_point. GetLeadingSpaces ( ) ;
@@ -221,18 +218,30 @@ namespace Wuthering. WutheringComments
 				comment_to_insert. Append ( prepend_text + comment_line + "\n" ) ;
 			    }
 
+			// We will perform several insert operations ; it will be nice to be able to undo them in one shot, so
+			// create an undo context
+			dte. UndoContext. Open ( "Insert \"" + category + "\" comment" ) ;
+
 			// Insert the comment after special constructs have been interpreted
 			line_start_point. Insert ( comment_to_insert. ToString ( ) ) ;
 
 			// Either a "{^}" or "{!}" construct has been found
-			if  ( select_from_line  >  0 )
-			   {
-				// Move to the position of "{^}" or "{!}"
-				selection. MoveToLineAndOffset ( select_from_line, select_from_column ) ;
+			try
+			   { 
+				if  ( select_from_line  >  0 )
+				   {
+					// Move to the position of "{^}" or "{!}"
+					selection. MoveToLineAndOffset ( select_from_line, select_from_column ) ;
 
-				// If specified, move to then position of "{$}"
-				if  ( select_to_line  >  0 )
-					selection. MoveToLineAndOffset ( select_to_line, select_to_column, true ) ;
+					// If specified, move to then position of "{$}"
+					if  ( select_to_line  >  0 )
+						selection. MoveToLineAndOffset ( select_to_line, select_to_column, true ) ;
+				    }
+			    }
+			catch ( Exception  e )
+			   {
+				 MessageBox. Show ( "Exception caught in XmlCommentsDocument::InsertComment() : \r\n" +
+							e. Message ) ;
 			    }
 
 			// Close the undo context, so that pressing Ctrl+Z will undo the whole comment insertion
@@ -270,29 +279,37 @@ namespace Wuthering. WutheringComments
 			// create an undo context
 			dte. UndoContext. Open ( "Embrace " + start + stop ) ;
 
-			// Insert an opening brace (or else) before the first line of the selection
-			line_start_point. Insert ( prepend_text + " ". Repeat ( indent_start - 1 ) + start + "\n" ) ;
+			try
+			   {
+				// Insert an opening brace (or else) before the first line of the selection
+				line_start_point. Insert ( prepend_text + " ". Repeat ( indent_start - 1 ) + start + "\n" ) ;
 
-			// Unindent this line so that it appears before the indentation level of the selection
-			line_start_point. MoveToLineAndOffset ( line_start_point. Line - 1, 1 ) ;
+				// Unindent this line so that it appears before the indentation level of the selection
+				line_start_point. MoveToLineAndOffset ( line_start_point. Line - 1, 1 ) ;
 
-			EditPoint	brace_eol		=  line_start_point. CreateEolEditPoint ( ) ;
+				EditPoint	brace_eol		=  line_start_point. CreateEolEditPoint ( ) ;
 
-			line_start_point. Unindent ( brace_eol, 1 ) ;
+				line_start_point. Unindent ( brace_eol, 1 ) ;
 
-			// Append a closing brace (or else) right after the last line of the selection
-			// (the selection does not have to cover the entire line)
-			EditPoint	end_of_selection	=  selection. GetBottomPoint ( ). CreateEolEditPoint ( ) ;
+				// Append a closing brace (or else) right after the last line of the selection
+				// (the selection does not have to cover the entire line)
+				EditPoint	end_of_selection	=  selection. GetBottomPoint ( ). CreateEolEditPoint ( ) ;
 
-			end_of_selection. Insert ( "\n" + prepend_text + " ". Repeat ( indent_stop - 1 ) + stop + "\n" ) ;
-			end_of_selection. MoveToLineAndOffset ( end_of_selection. Line - 1, 1 ) ;
-			brace_eol	=  end_of_selection. CreateEolEditPoint ( ) ;
+				end_of_selection. Insert ( "\n" + prepend_text + " ". Repeat ( indent_stop - 1 ) + stop + "\n" ) ;
+				end_of_selection. MoveToLineAndOffset ( end_of_selection. Line - 1, 1 ) ;
+				brace_eol	=  end_of_selection. CreateEolEditPoint ( ) ;
 
-			end_of_selection. MoveToLineAndOffset ( end_of_selection. Line, 1 ) ;
-			end_of_selection. Unindent ( brace_eol, 1 ) ;
+				end_of_selection. MoveToLineAndOffset ( end_of_selection. Line, 1 ) ;
+				end_of_selection. Unindent ( brace_eol, 1 ) ;
 
-			// Restore the caret to where it was before calling this method
-			selection. MoveToPoint ( active_point ) ;
+				// Restore the caret to where it was before calling this method
+				selection. MoveToPoint ( active_point ) ;
+			    }
+			catch ( Exception  e )
+			   {
+				 MessageBox. Show ( "Exception caught in XmlCommentsDocument::Enclose() : \r\n" +
+							e. Message ) ;
+			    }
 
 			// Close the undo context, so that pressing Ctrl+Z will undo the whole code selection_start
 			dte. UndoContext. Close ( ) ;

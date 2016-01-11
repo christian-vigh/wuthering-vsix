@@ -5,13 +5,13 @@
       <string>e:\visual studio\projects\vsix\wuthering\sourcecomments\wutheringcomments.vsct</string>
     </ArrayOfString>
     <ArrayOfString>
-      <string>E:\Visual Studio\Projects\VSIX\Wuthering\SourceComments\Sources\Components\CommentsDocument.cs</string>
+      <string>e:\visual studio\projects\vsix\wuthering\sourcecomments\sources\components\commentsdocument.cs</string>
     </ArrayOfString>
     <ArrayOfString>
       <string>e:\visual studio\projects\vsix\wuthering\sourcecomments\sources\symbols.cs</string>
     </ArrayOfString>
     <ArrayOfString>
-      <string>E:\Visual Studio\Projects\VSIX\Wuthering\SourceComments\Sources\WutheringCommentsPackage.cs</string>
+      <string>e:\visual studio\projects\vsix\wuthering\sourcecomments\sources\wutheringcommentspackage.cs</string>
     </ArrayOfString>
     <ArrayOfString>
       <string>e:\visual studio\projects\vsix\wuthering\sourcecomments\sources\wutheringcommentsoptionpage.cs</string>
@@ -26,18 +26,18 @@
       <string>e:\visual studio\projects\vsix\wuthering\sourcecomments\data\wutheringcomments.xml</string>
     </ArrayOfString>
     <ArrayOfString>
-      <string>E:\Visual Studio\Projects\Libraries\Thrak\Sources\Types\String.cs</string>
+      <string>e:\visual studio\projects\libraries\thrak\sources\types\string.cs</string>
     </ArrayOfString>
     <ArrayOfString>
       <string>E:\Visual Studio\Projects\VSIX\Wuthering\SourceComments\Sources\Forms\WutheringCommentsOptionsPageUI.cs</string>
       <string>E:\Visual Studio\Projects\VSIX\Wuthering\SourceComments\Sources\Forms\WutheringCommentsOptionsPageUI.cs</string>
     </ArrayOfString>
     <ArrayOfString>
-      <string>E:\Visual Studio\Projects\VSIX\Wuthering\CommentsTestUI\TestUI.cs</string>
+      <string>e:\visual studio\projects\vsix\wuthering\commentstestui\testui.cs</string>
     </ArrayOfString>
     <ArrayOfString>
-      <string>E:\Visual Studio\Projects\VSIX\Wuthering\SourceComments\Sources\Forms\WutheringCommentsEditor.cs</string>
-      <string>E:\Visual Studio\Projects\VSIX\Wuthering\SourceComments\Sources\Forms\WutheringCommentsEditor.cs</string>
+      <string>e:\visual studio\projects\vsix\wuthering\sourcecomments\sources\forms\wutheringcommentseditor.cs</string>
+      <string>e:\visual studio\projects\vsix\wuthering\sourcecomments\sources\forms\wutheringcommentseditor.cs</string>
     </ArrayOfString>
   </ArrayOfArrayOfString>
 </ArrayOfArrayOfArrayOfString>
