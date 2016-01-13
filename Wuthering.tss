@@ -5,7 +5,7 @@
       <string>e:\visual studio\projects\vsix\wuthering\sourcecomments\wutheringcomments.vsct</string>
     </ArrayOfString>
     <ArrayOfString>
-      <string>e:\visual studio\projects\vsix\wuthering\sourcecomments\sources\components\commentsdocument.cs</string>
+      <string>E:\Visual Studio\Projects\VSIX\Wuthering\SourceComments\Sources\Components\CommentsDocument.cs</string>
     </ArrayOfString>
     <ArrayOfString>
       <string>e:\visual studio\projects\vsix\wuthering\sourcecomments\sources\symbols.cs</string>
@@ -29,8 +29,8 @@
       <string>e:\visual studio\projects\libraries\thrak\sources\types\string.cs</string>
     </ArrayOfString>
     <ArrayOfString>
-      <string>E:\Visual Studio\Projects\VSIX\Wuthering\SourceComments\Sources\Forms\WutheringCommentsOptionsPageUI.cs</string>
-      <string>E:\Visual Studio\Projects\VSIX\Wuthering\SourceComments\Sources\Forms\WutheringCommentsOptionsPageUI.cs</string>
+      <string>e:\visual studio\projects\vsix\wuthering\sourcecomments\sources\forms\wutheringcommentsoptionspageui.cs</string>
+      <string>e:\visual studio\projects\vsix\wuthering\sourcecomments\sources\forms\wutheringcommentsoptionspageui.cs</string>
     </ArrayOfString>
     <ArrayOfString>
       <string>e:\visual studio\projects\vsix\wuthering\commentstestui\testui.cs</string>
